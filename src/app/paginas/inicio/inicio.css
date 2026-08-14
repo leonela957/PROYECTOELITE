@@ -1,0 +1,360 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.fondo {
+    width: 100%;
+    min-height: 100vh;
+
+    background-image: url('/assets/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flow-root;
+    padding-bottom: 40px;
+}
+
+
+/* =========================
+   TÍTULO PRINCIPAL
+========================= */
+
+.titulo-principal {
+    text-align: center;
+
+    margin: 40px auto 35px;
+    padding: 15px 60px;
+
+    color: #d4af37;
+    font-family: Georgia, serif;
+
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: normal;
+
+    letter-spacing: clamp(3px, 0.8vw, 8px);
+
+    position: relative;
+    width: fit-content;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+
+/* Línea izquierda */
+
+.titulo-principal::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 45px;
+    height: 1px;
+
+    background: #d4af37;
+}
+
+
+/* Línea derecha */
+
+.titulo-principal::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    width: 45px;
+    height: 1px;
+
+    background: #d4af37;
+}
+
+
+/* =========================
+   BLOQUES
+========================= */
+
+.tienda,
+.stream,
+.barberia,
+.academia {
+
+    width: 80%;
+    max-width: 1100px;
+
+    min-height: 180px;
+
+    margin: 25px auto;
+
+    border: 2px solid #d4af37;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #163d63;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(212, 175, 55, 0.08);
+
+    transition: all 0.4s ease;
+}
+
+
+/* =========================
+   TÍTULOS DE LOS BLOQUES
+========================= */
+
+.tienda h1,
+.stream h1,
+.barberia h1,
+.academia h1 {
+
+    margin: 0;
+
+    color: #d4af37;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(22px, 3vw, 32px);
+
+    letter-spacing: clamp(2px, 0.5vw, 4px);
+
+    text-align: center;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   SUBTÍTULOS
+========================= */
+
+.tienda p,
+.stream p,
+.barberia p,
+.academia p {
+
+    margin: 12px 0 0;
+
+    color: white;
+
+    font-size: clamp(13px, 1.5vw, 17px);
+
+    letter-spacing: clamp(2px, 0.4vw, 5px);
+
+    text-transform: uppercase;
+
+    text-align: center;
+}
+
+
+/* =========================
+   LÍNEAS DORADAS
+========================= */
+
+.tienda::before,
+.stream::before,
+.barberia::before,
+.academia::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    width: 120px;
+    max-width: 30%;
+
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d4af37,
+        transparent
+    );
+}
+
+
+.tienda::after,
+.stream::after,
+.barberia::after,
+.academia::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 20px;
+    left: 50%;
+
+    width: 120px;
+    max-width: 30%;
+
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d4af37,
+        transparent
+    );
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.tienda:hover,
+.stream:hover,
+.barberia:hover,
+.academia:hover {
+
+    transform: scale(1.02);
+
+    background: #1b4975;
+
+    border-color: #f0d77a;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    .titulo-principal {
+        margin: 30px auto 25px;
+        padding: 12px 45px;
+
+        font-size: 30px;
+        letter-spacing: 4px;
+    }
+
+    .titulo-principal::before,
+    .titulo-principal::after {
+        width: 30px;
+    }
+
+    .tienda,
+    .stream,
+    .barberia,
+    .academia {
+        width: 90%;
+        min-height: 160px;
+
+        margin: 20px auto;
+    }
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 480px) {
+
+    .fondo {
+        padding-bottom: 25px;
+    }
+
+    .titulo-principal {
+        width: 90%;
+
+        margin: 25px auto 20px;
+        padding: 10px 35px;
+
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    .titulo-principal::before,
+    .titulo-principal::after {
+        width: 20px;
+    }
+
+    .tienda,
+    .stream,
+    .barberia,
+    .academia {
+
+        width: 92%;
+        min-height: 140px;
+
+        margin: 15px auto;
+
+        border-width: 1px;
+    }
+
+    .tienda h1,
+    .stream h1,
+    .barberia h1,
+    .academia h1 {
+
+        font-size: 21px;
+        letter-spacing: 2px;
+    }
+
+    .tienda p,
+    .stream p,
+    .barberia p,
+    .academia p {
+
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .tienda::before,
+    .stream::before,
+    .barberia::before,
+    .academia::before {
+
+        top: 15px;
+        width: 80px;
+    }
+
+    .tienda::after,
+    .stream::after,
+    .barberia::after,
+    .academia::after {
+
+        bottom: 15px;
+        width: 80px;
+    }
+}

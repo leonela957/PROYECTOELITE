@@ -1,0 +1,391 @@
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: relative;
+
+    width: 100%;
+    min-height: 180px;
+
+    padding: 30px 60px;
+
+    background: #071a3d;
+
+    border-top: 3px solid #d4af37;
+    border-bottom: 3px solid #d4af37;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    img {
+        background-color: rgb(250, 250, 250, 0.7);
+        border-radius: 5px;
+    }
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.info-footer {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 55%;
+
+    padding-left: 20px;
+}
+
+
+/* Ubicación */
+
+.ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+}
+
+.ubicacion:hover {
+    color: #d4af37;
+}
+
+.ubicacion img {
+    width: 40px !important;
+    height: 40px;
+
+    object-fit: contain;
+}
+
+
+/* Horarios */
+
+.horarios {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.horarios img {
+    width: 40px !important;
+    height: 40px;
+
+    object-fit: contain;
+}
+
+.horarios p {
+    margin: 0;
+
+    color: white;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   REDES SOCIALES
+========================= */
+
+.redes-footer {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    width: 35%;
+}
+
+.redes-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redes-footer img {
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+
+    transition: 0.3s ease;
+
+}
+
+.redes-footer img:hover {
+    transform: scale(1.15);
+
+    filter: drop-shadow(0 0 7px #d4af37);
+}
+
+
+/* =========================
+   ADORNO IZQUIERDO
+========================= */
+
+.info-footer::before {
+    content: "";
+
+    position: absolute;
+
+    left: -5px;
+    top: -10px;
+
+    width: 40px;
+    height: 40px;
+
+    border-left: 1px solid #d4af37;
+    border-top: 1px solid #d4af37;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   ADORNO DERECHO
+========================= */
+
+.redes-footer::after {
+    content: "";
+
+    position: absolute;
+
+    right: -5px;
+    bottom: -20px;
+
+    width: 40px;
+    height: 40px;
+
+    border-right: 1px solid #d4af37;
+    border-bottom: 1px solid #d4af37;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   DETALLE CENTRAL
+========================= */
+
+footer::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 180px;
+    height: 1px;
+
+    transform: translate(-50%, -50%);
+
+    background: linear-gradient(to right,
+            transparent,
+            #d4af37,
+            transparent);
+
+    opacity: 0.7;
+}
+
+footer::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 9px;
+    height: 9px;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    border: 1px solid #d4af37;
+
+    background: #071a3d;
+
+    box-shadow:
+        0 0 0 5px #071a3d,
+        0 0 0 6px rgba(212, 175, 55, 0.5);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    footer {
+        min-height: 230px;
+
+        padding: 30px 35px;
+
+        flex-direction: column;
+        justify-content: center;
+
+        gap: 25px;
+    }
+
+
+    .info-footer {
+        width: 100%;
+
+        padding-left: 0;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .ubicacion {
+        justify-content: center;
+
+        text-align: center;
+
+        font-size: 14px;
+    }
+
+
+    .horarios {
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .horarios p {
+        font-size: 14px;
+    }
+
+
+    .redes-footer {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+
+    /* En tablet quitamos los adornos laterales */
+    .info-footer::before,
+    .redes-footer::after {
+        display: none;
+    }
+
+
+    /* El adorno central pasa a ser decorativo */
+    footer::before {
+        width: 120px;
+        top: 50%;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+
+    footer {
+        min-height: 260px;
+
+        padding: 30px 20px;
+
+        gap: 20px;
+    }
+
+
+    .info-footer {
+        gap: 12px;
+    }
+
+
+    .ubicacion {
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        font-size: 13px;
+
+        line-height: 1.4;
+    }
+
+
+    .ubicacion img {
+        width: 35px !important;
+        height: 35px;
+    }
+
+
+    .horarios {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 5px;
+    }
+
+
+    .horarios img {
+        width: 35px !important;
+        height: 35px;
+    }
+
+
+    .horarios p {
+        font-size: 12px;
+
+        text-align: center;
+
+        line-height: 1.5;
+    }
+
+
+    .redes-footer {
+        gap: 12px;
+    }
+
+
+    .redes-footer img {
+        width: 42px;
+        height: 42px;
+
+    }
+
+
+    footer::before {
+        display: none;
+    }
+
+
+    footer::after {
+        display: none;
+    }
+}
