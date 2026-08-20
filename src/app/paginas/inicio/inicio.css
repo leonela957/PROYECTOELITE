@@ -127,6 +127,10 @@ body {
    TÍTULOS DE LOS BLOQUES
 ========================= */
 
+a {
+    text-decoration: none;
+}
+
 .tienda h1,
 .stream h1,
 .barberia h1,
@@ -145,7 +149,8 @@ body {
     text-align: center;
 
     text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.5);
+    0 2px 5px rgba(0, 0, 0, 0.5);
+        
 }
 
 
