@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Nav } from '../../compartidos/nav/nav';
 
 @Component({
   selector: 'app-tienda',
-  imports: [],
+  imports: [Nav],
   templateUrl: './tienda.html',
   styleUrl: './tienda.css',
 })

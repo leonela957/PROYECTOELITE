@@ -1,0 +1,316 @@
+/* =========================
+   NAVBAR ÉLITE PRODUCCIONES
+========================= */
+
+nav {
+    position: relative;
+
+    width: 100%;
+    min-height: 115px;
+
+    padding: 15px 45px;
+
+    background: #071a3d;
+
+    border-top: 2px solid #d4af37;
+    border-bottom: 2px solid #d4af37;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    color: white;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+nav .logo {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+}
+
+nav .logo img {
+    width: 100px;
+    height: 90px;
+
+    object-fit: contain;
+
+    transition: 0.3s ease;
+}
+
+nav .logo img:hover {
+    transform: scale(1.05);
+
+    filter: drop-shadow(0 0 6px #d4af37);
+}
+
+
+/* =========================
+   TIPO DE VESTIDO
+========================= */
+
+.tipo-vestido {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-left: auto;
+    margin-right: 35px;
+}
+
+.tipo-vestido label {
+    color: white;
+
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.tipo-vestido select {
+    min-width: 150px;
+
+    padding: 10px 35px 10px 12px;
+
+    background: #071a3d;
+
+    color: white;
+
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.tipo-vestido select:hover,
+.tipo-vestido select:focus {
+    border-color: #f0d66b;
+
+    box-shadow:
+        0 0 8px rgba(212, 175, 55, 0.45);
+}
+
+.tipo-vestido select option {
+    background: #071a3d;
+    color: white;
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+.nav-iconos {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.nav-iconos a {
+    position: relative;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+
+    transition: 0.3s ease;
+}
+
+.nav-iconos img {
+    width: 36px;
+    height: 36px;
+
+    object-fit: contain;
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================
+   EFECTO HOVER ICONOS
+========================= */
+
+.nav-iconos a:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(212, 175, 55, 0.5);
+
+    box-shadow:
+        0 0 8px rgba(212, 175, 55, 0.25);
+}
+
+.nav-iconos a:hover img {
+    transform: scale(1.12);
+
+    filter: drop-shadow(0 0 6px #d4af37);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        min-height: 105px;
+
+        padding: 10px 25px;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+
+    /* Logo */
+
+    nav .logo img {
+        width: 80px;
+        height: 70px;
+    }
+
+
+    /* Selector */
+
+    .tipo-vestido {
+        margin-left: auto;
+        margin-right: 0;
+
+        gap: 8px;
+    }
+
+    .tipo-vestido label {
+        font-size: 13px;
+    }
+
+    .tipo-vestido select {
+        min-width: 125px;
+
+        padding: 8px 10px;
+
+        font-size: 13px;
+    }
+
+
+    /* Iconos */
+
+    .nav-iconos {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        padding-top: 8px;
+    }
+
+    .nav-iconos a {
+        width: 42px;
+        height: 42px;
+    }
+
+    .nav-iconos img {
+        width: 31px;
+        height: 31px;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+
+    nav {
+        min-height: auto;
+
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    /* Logo */
+
+    nav .logo img {
+        width: 85px;
+        height: 75px;
+    }
+
+
+    /* Selector */
+
+    .tipo-vestido {
+        width: 100%;
+
+        margin: 0;
+
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+    .tipo-vestido label {
+        font-size: 13px;
+    }
+
+    .tipo-vestido select {
+        width: 80%;
+        max-width: 250px;
+
+        padding: 9px;
+    }
+
+
+    /* Iconos */
+
+    .nav-iconos {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        padding-top: 5px;
+    }
+
+    .nav-iconos a {
+        width: 42px;
+        height: 42px;
+    }
+
+    .nav-iconos img {
+        width: 28px;
+        height: 28px;
+    }
+}
