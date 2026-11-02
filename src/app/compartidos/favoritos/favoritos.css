@@ -1,0 +1,164 @@
+/* CONTENEDOR PRINCIPAL */
+
+.favoritos-container {
+    max-width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+    padding: 50px 30px;
+    background: #dce7f2;
+}
+
+
+/* TÍTULO */
+
+.titulo-favoritos {
+    color: #071a3d;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+
+/* SUBTÍTULO */
+
+.subtitulo {
+    color: #4d5661;
+    font-size: 16px;
+}
+
+
+/* CONTENEDOR DE LA TABLA */
+
+.favoritos-container table {
+    width: 100%;
+    margin-bottom: 25px;
+    background: #faf8f2;
+    border: 2px solid #d4af37;
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(7, 26, 61, 0.15);
+}
+
+
+/* ENCABEZADOS */
+
+.favoritos-container th {
+    background: #071a3d;
+    color: #d4af37;
+    padding: 18px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #d4af37;
+}
+
+
+/* CELDAS */
+
+.favoritos-container td {
+    padding: 16px 12px;
+    text-align: center;
+    vertical-align: middle;
+    color: #071a3d;
+    border: 1px solid #d8c78e;
+    font-size: 14px;
+}
+
+
+/* EFECTO AL PASAR POR LA FILA */
+
+.favoritos-container tr:hover td {
+    background: #edf1f5;
+}
+
+
+/* BOTONES */
+
+.favoritos-container td button {
+    width: 42px;
+    height: 42px;
+    background: #071a3d;
+    color: white;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+
+/* EFECTO DE LOS BOTONES */
+
+.favoritos-container td button:hover {
+    background: #d4af37;
+    color: #071a3d;
+    transform: translateY(-2px);
+}
+
+
+/* FAVORITOS VACÍOS */
+
+.favoritos-vacios {
+    color: #071a3d;
+    background: #faf8f2;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    padding: 45px 20px;
+    box-shadow: 0 5px 15px rgba(7, 26, 61, 0.12);
+}
+
+.favoritos-vacios h3 {
+    margin-top: 15px;
+    font-size: 23px;
+}
+
+.favoritos-vacios p {
+    color: #4d5661;
+}
+
+.icono-corazon {
+    color: #b08d20;
+    font-size: 45px;
+}
+
+
+/* BOTÓN PARA IR A LA TIENDA */
+
+.btn-tienda {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 11px 25px;
+    background: #071a3d;
+    color: white;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-tienda:hover {
+    background: #d4af37;
+    color: #071a3d;
+}
+
+
+/* TABLET Y CELULAR */
+
+@media (max-width: 768px) {
+
+    .favoritos-container {
+        padding: 35px 15px;
+    }
+
+    .titulo-favoritos {
+        font-size: 27px;
+    }
+
+    .favoritos-container table {
+        min-width: 750px;
+    }
+
+    .favoritos-container {
+        overflow-x: auto;
+    }
+}

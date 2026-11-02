@@ -1,4 +1,28 @@
 <app-nav></app-nav>
 
-<h1>Tienda</h1>
+<div class="contenedor">
+    @for (producto of productos; track producto.id) {
+        <div class="cards">
+            <img [src]="producto.imagen" [alt]="producto.nombre">
+            <h2>{{producto.nombre}}</h2>
+            <p>{{producto.descripcion}}</p>
+            <p>${{producto.precio}}</p>
+            <button class="btn">Ver más</button>
+           
+<button
+  class="btn"
+  (click)="agregarAFavoritos(producto)"
+  title="Agregar a favoritos"
+>
+  <img src="assets/favorito.png" alt="Agregar a favoritos">
+</button>
+
+            <button class="btn" (click)="agregarACarrito(producto)">
+              <img src="assets/carrito.png" alt="">
+            </button>
+            
+        </div>
+
+    }
+</div>
 

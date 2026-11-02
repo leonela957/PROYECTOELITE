@@ -1,1 +1,81 @@
-<p>carrito works!</p>
+
+<div class="container py-5 carrito-container">
+
+  <div class="text-center mb-5">
+    <h1 class="titulo-carrito">MI CARRITO</h1>
+    <p class="subtitulo">
+      Tus prendas elegidas de Élite Moda.
+    </p>
+  </div>
+
+  @if (productosCarrito.length > 0) {
+
+    <div class="table-responsive">
+
+      <table class="table text-center align-middle">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Color</th>
+            <th>Precio</th>
+            <th>Eliminar del carrito</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (producto of productosCarrito; track producto.id) {
+            <tr>
+              <td>
+                <img [src]="producto.imagen" [alt]="producto.nombre" width="100">
+              </td>
+              <td>{{ producto.descripcion }}</td>
+              <td>{{ producto.color }}</td>
+              <td>${{ producto.precio }}</td>
+              <td>
+                <button class="btn" (click)="quitarDelCarrito(producto.id)"> ❌ </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="text-end mt-4">
+      <h3>Total: ${{ calcularTotal() }}</h3>
+
+      <button
+        class="btn btn-danger me-2"
+        (click)="vaciarCarrito()"
+      >
+        Vaciar carrito
+      </button>
+
+      <a routerLink="/tienda" class="btn btn-tienda">
+        Seguir comprando
+      </a>
+    </div>
+
+  } @else {
+
+    <div class="carrito-vacio text-center py-5">
+
+      <i class="bi bi-cart icono-carrito"></i>
+
+      <h3>Tu carrito está vacío</h3>
+
+      <p>
+        Explorá la tienda y agregá las prendas que más te gusten.
+      </p>
+
+      <a routerLink="/tienda" class="btn btn-tienda">
+        Ir a la tienda
+      </a>
+
+    </div>
+
+  }
+
+</div>
+
