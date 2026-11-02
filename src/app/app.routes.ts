@@ -6,8 +6,8 @@ import { Show } from './paginas/show/show';
 import { Barberia } from './paginas/barberia/barberia';
 import { Academia } from './paginas/academia/academia';
 
-import { Carrito } from './compartidos/carrito/carrito';
-import { Favoritos } from './compartidos/favoritos/favoritos';
+import { Carrito } from './paginas/carrito/carrito';
+import { Favoritos } from './paginas/favoritos/favoritos';
 
 import { Registro } from './auth/registro/registro';
 import { InicioSesion } from './auth/inicio-sesion/inicio-sesion';

@@ -1,9 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Nav } from '../../compartidos/nav/nav';
-import { Producto } from '../../i-producto';
-import { FavoritoService } from '../../../servicios/favoritoService';
-import { CarritoService } from '../../../servicios/carritoService';
+import { Producto } from '../../models/i-producto';
+import { FavoritoService } from '../../servicios/favoritoService';
+import { CarritoService } from '../../servicios/carritoService';
 
 @Component({
   selector: 'app-tienda',
@@ -11,8 +11,11 @@ import { CarritoService } from '../../../servicios/carritoService';
   templateUrl: './tienda.html',
   styleUrl: './tienda.css',
 })
-export class Tienda {
-
+export class Tienda implements OnInit {
+ ngOnInit(): void {
+  console.log('SERVICIO TIENDA:', this.carritoService);
+  console.log('PRODUCTOS:', this.carritoService.obtenerProductos());
+}
   constructor(
     private favoritoService: FavoritoService,
     private carritoService: CarritoService

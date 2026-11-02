@@ -1,18 +1,19 @@
+
 /* CONTENEDOR PRINCIPAL */
 
 .favoritos-container {
-    max-width: 1200px;
+    max-width: 100%;
     min-height: 500px;
     margin: 0 auto;
     padding: 50px 30px;
-    background: #dce7f2;
+    background: #102544;
 }
 
 
 /* TÍTULO */
 
 .titulo-favoritos {
-    color: #071a3d;
+    color: #d4af37;
     font-size: 34px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -23,7 +24,7 @@
 /* SUBTÍTULO */
 
 .subtitulo {
-    color: #4d5661;
+    color: #c5d1df;
     font-size: 16px;
 }
 
@@ -33,10 +34,10 @@
 .favoritos-container table {
     width: 100%;
     margin-bottom: 25px;
-    background: #faf8f2;
+    background: #dce7f2;
     border: 2px solid #d4af37;
     border-collapse: collapse;
-    box-shadow: 0 5px 15px rgba(7, 26, 61, 0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -60,15 +61,25 @@
     text-align: center;
     vertical-align: middle;
     color: #071a3d;
-    border: 1px solid #d8c78e;
+    border: 1px solid #aabed3;
     font-size: 14px;
+    background: #dce7f2;
+}
+
+
+/* IMÁGENES */
+
+.favoritos-container td img {
+    width: 100px;
+    height: 120px;
+    object-fit: contain;
 }
 
 
 /* EFECTO AL PASAR POR LA FILA */
 
 .favoritos-container tr:hover td {
-    background: #edf1f5;
+    background: #c5d5e6;
 }
 
 
@@ -100,11 +111,11 @@
 
 .favoritos-vacios {
     color: #071a3d;
-    background: #faf8f2;
+    background: #dce7f2;
     border: 1px solid #d4af37;
     border-radius: 8px;
     padding: 45px 20px;
-    box-shadow: 0 5px 15px rgba(7, 26, 61, 0.12);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .favoritos-vacios h3 {
@@ -160,5 +171,10 @@
 
     .favoritos-container {
         overflow-x: auto;
+    }
+
+    .favoritos-container td img {
+        width: 75px;
+        height: 90px;
     }
 }

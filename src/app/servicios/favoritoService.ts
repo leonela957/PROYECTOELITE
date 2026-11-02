@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Producto } from '../app/i-producto';
+import { Producto } from '../models/i-producto';
 import { CarritoService } from './carritoService';
-import { Productos } from '../app/paginas/productos/productos';
+import { Productos } from '../paginas/productos/productos';
 
 @Injectable({
   providedIn: 'root',

@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { FavoritoService } from '../../../servicios/favoritoService';
-import { Producto } from '../../i-producto';
+import { FavoritoService } from '../../servicios/favoritoService';
+import { Producto } from '../../models/i-producto';
 
 
 @Component({

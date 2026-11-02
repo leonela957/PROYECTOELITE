@@ -1,9 +1,12 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { CarritoService } from '../../../servicios/carritoService';
-import { Producto } from '../../i-producto';
+import { Subscription } from 'rxjs';
+import { Producto } from '../../models/i-producto';
+import { CarritoService } from '../../servicios/carritoService';
+
+
+
 
 @Component({
   selector: 'app-carrito',
@@ -12,28 +15,32 @@ import { Producto } from '../../i-producto';
   templateUrl: './carrito.html',
   styleUrl: './carrito.css',
 })
-export class Carrito implements OnInit {
+export class Carrito implements OnInit{
 
   productosCarrito: Producto[] = [];
+
+  private suscripcion!: Subscription;
 
   constructor(private carritoService: CarritoService) {}
 
   ngOnInit(): void {
-    this.cargarCarrito();
+    this.suscripcion = this.carritoService.carrito$.subscribe(
+      productos => {
+        this.productosCarrito = productos;
+      }
+    );
   }
 
-  cargarCarrito(): void {
-    this.productosCarrito = this.carritoService.obtenerProductos();
+  ngOnDestroy(): void {
+    this.suscripcion?.unsubscribe();
   }
 
   quitarDelCarrito(id: number): void {
     this.carritoService.borrarProducto(id);
-    this.cargarCarrito();
   }
 
   vaciarCarrito(): void {
     this.carritoService.vaciarCarrito();
-    this.cargarCarrito();
   }
 
   calcularTotal(): number {
