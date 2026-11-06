@@ -1,1 +1,89 @@
-<p>registro works!</p>
+
+<div class="registro-container">
+
+  <div class="registro-formulario">
+
+    <div class="text-center mb-4">
+      <h1 class="titulo-registro">CREAR CUENTA</h1>
+      <p class="subtitulo-registro">
+        Unite a Élite Moda y descubrí nuestra colección.
+      </p>
+    </div>
+
+    <form>
+
+      <!-- Nombre -->
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          class="form-control"
+          placeholder="Ingresá tu nombre"
+          required>
+      </div>
+
+      <!-- Apellido -->
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input
+          type="text"
+          id="apellido"
+          class="form-control"
+          placeholder="Ingresá tu apellido"
+          required>
+      </div>
+
+      <!-- Correo -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="ejemplo@gmail.com"
+          required>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Creá una contraseña"
+          required>
+      </div>
+
+      <!-- Confirmar contraseña -->
+      <div class="mb-4">
+        <label for="confirmarPassword" class="form-label">
+          Confirmar contraseña
+        </label>
+        <input
+          type="password"
+          id="confirmarPassword"
+          class="form-control"
+          placeholder="Repetí tu contraseña"
+          required>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit" class="btn btn-registro w-100">
+        CREAR CUENTA
+      </button>
+
+    </form>
+
+    <!-- Inicio de sesión -->
+    <div class="enlace-sesion text-center mt-4">
+    <p>¿Ya tenés una cuenta?</p>
+
+    <a routerLink="/inicio-sesion">
+        Iniciar sesión
+    </a>
+</div>
+
+</div>
+

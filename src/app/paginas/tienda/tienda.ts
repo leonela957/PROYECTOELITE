@@ -4,6 +4,7 @@ import { Nav } from '../../compartidos/nav/nav';
 import { Producto } from '../../models/i-producto';
 import { FavoritoService } from '../../servicios/favoritoService';
 import { CarritoService } from '../../servicios/carritoService';
+import { CategoriaService } from '../../servicios/categoriaService';
 
 @Component({
   selector: 'app-tienda',
@@ -18,7 +19,8 @@ export class Tienda implements OnInit {
 }
   constructor(
     private favoritoService: FavoritoService,
-    private carritoService: CarritoService
+    private carritoService: CarritoService,
+    public categoriaService: CategoriaService
   ) {}
 
   productos: Producto[] = [
@@ -55,6 +57,19 @@ export class Tienda implements OnInit {
     }
   ];
 
+  // CATEGORÍA SELECCIONADA
+
+obtenerProductosFiltrados(): Producto[] {
+
+  if (this.categoriaService.categoriaSeleccionada === 'todos') {
+    return this.productos;
+  }
+
+  return this.productos.filter(
+    producto => producto.categoria === this.categoriaService.categoriaSeleccionada
+  );
+
+}
   agregarAFavoritos(p: Producto): void {
     this.favoritoService.agregarAFavorito(p);
   }

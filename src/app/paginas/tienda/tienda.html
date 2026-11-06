@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 
 <div class="contenedor">
-    @for (producto of productos; track producto.id) {
+    @for (producto of obtenerProductosFiltrados(); track producto.id) {
         <div class="cards">
             <img [src]="producto.imagen" [alt]="producto.nombre">
             <h2>{{producto.nombre}}</h2>

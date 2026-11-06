@@ -4,13 +4,20 @@
     </a>
 
     <div class="tipo-vestido">
-        <label for="categoria">Categoría:</label>
+  <label for="categoria">Categoría:</label>
 
-        <select name="tipo" id="categoria">
-            <option value="largos">Vestidos</option>
-            <option value="cortos">Zapatillas</option>
-            <option value="2partes">Accesorios</option>
-        </select>
+  <select
+    name="tipo"
+    id="categoria"
+    #categoria
+    (change)="categoriaService.categoriaSeleccionada = categoria.value">
+
+    <option value="todos">Todos los productos</option>
+    <option value="vestidos">Vestidos</option>
+    <option value="zapatillas">Zapatillas</option>
+    <option value="accesorios">Accesorios</option>
+
+    </select>
     </div>
 
     <div class="nav-iconos">

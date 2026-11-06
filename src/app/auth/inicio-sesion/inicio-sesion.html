@@ -1,1 +1,73 @@
-<p>inicio-sesion works!</p>
+
+<div class="inicio-sesion-container">
+
+    <div class="inicio-sesion-formulario">
+
+        <!-- ENCABEZADO -->
+        <div class="encabezado-sesion text-center">
+
+            <h1 class="titulo-sesion">BIENVENIDO/A</h1>
+
+            <p class="subtitulo-sesion">
+                Iniciá sesión para continuar en Élite Moda.
+            </p>
+
+        </div>
+
+        <form>
+
+            <!-- CORREO ELECTRÓNICO -->
+            <div class="mb-4">
+                <label for="email" class="form-label">
+                    Correo electrónico
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="Ingresá tu correo electrónico"
+                    required>
+            </div>
+
+            <!-- CONTRASEÑA -->
+            <div class="mb-3">
+                <label for="password" class="form-label">
+                    Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Ingresá tu contraseña"
+                    required>
+            </div>
+
+            <!-- RECORDAR SESIÓN -->
+            <div class="recordar-sesion mb-4">
+                <label>
+                    <input type="checkbox">
+                    Recordar mi sesión
+                </label>
+            </div>
+
+            <!-- BOTÓN -->
+            <button type="submit" class="btn btn-iniciar">
+                INICIAR SESIÓN
+            </button>
+
+        </form>
+
+        <!-- REGISTRO -->
+    <div class="enlace-registro text-center mt-4">
+    <p>¿Todavía no tenés una cuenta?</p>
+
+    <a routerLink="/registro">
+        Crear una cuenta
+    </a>
+        </div>
+
+    </div>
+
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CategoriaService } from '../../servicios/categoriaService';
 
 @Component({
   selector: 'app-nav',
@@ -7,4 +8,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './nav.html',
   styleUrl: './nav.css'
 })
-export class Nav {}
+export class Nav {
+  constructor(public categoriaService: CategoriaService) {}
+}
