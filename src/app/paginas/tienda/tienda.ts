@@ -5,10 +5,11 @@ import { Producto } from '../../models/i-producto';
 import { FavoritoService } from '../../servicios/favoritoService';
 import { CarritoService } from '../../servicios/carritoService';
 import { CategoriaService } from '../../servicios/categoriaService';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tienda',
-  imports: [Nav],
+  imports: [Nav, RouterLink],
   templateUrl: './tienda.html',
   styleUrl: './tienda.css',
 })
@@ -77,4 +78,32 @@ obtenerProductosFiltrados(): Producto[] {
   agregarACarrito(p: Producto): void{
     this.carritoService.agregarACarrito(p);
   }
+
+
+// CARRUSEL DE IMÁGENES
+
+imagenActual: number = 0;
+
+siguiente(): void {
+    this.imagenActual++;
+
+    if (this.imagenActual > 4) {
+        this.imagenActual = 0;
+    }
 }
+
+anterior(): void {
+    this.imagenActual--;
+
+    if (this.imagenActual < 0) {
+        this.imagenActual = 4;
+    }
+}
+
+cambiarImagen(numero: number): void {
+    this.imagenActual = numero;
+}
+
+}
+
+

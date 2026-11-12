@@ -1,197 +1,377 @@
-.contenedor {
-    width: 100%;
-    min-height: 500px;
-    padding: 55px 60px;
+/* ==========================
+   FONDO GENERAL Y CONTENEDOR
+========================== */
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
-
-    background: #071a3d;
-    box-sizing: border-box;
+:host {
+    display: block;
+    background-color: #071a3d;
+    min-height: 100vh;
 }
 
+/* Contenedor general para que todo conserve el mismo ancho y no sobresalga */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #071a3d;
+}
 
-/* CARD */
+/* ==========================
+   CARRUSEL DE PRESENTACIÓN (ANCHO AJUSTADO Y MÁS ALTO)
+========================== */
+
+.carrusel-presentacion {
+    position: relative;
+    width: 100%;
+    max-width: 1100px; /* Ancho controlado para que respire por los lados */
+    margin: 20px auto 40px auto;
+    overflow: hidden;
+    border-radius: 8px; /* Bordes redondeados elegantes */
+    border: 2px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carrusel-imagenes {
+    position: relative;
+    width: 100%;
+    height: 480px; /* Altura aumentada para que las imágenes se luzcan mejor */
+}
+
+.carrusel-imagenes img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* Muestra únicamente la imagen activa */
+.carrusel-imagenes img.activa {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+/* FLECHAS */
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(7, 26, 61, 0.7);
+    color: #ffffff;
+    border: 1px solid #d4af37;
+    font-size: 20px;
+    padding: 12px 16px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.flecha:hover {
+    background-color: #d4af37;
+    color: #071a3d;
+}
+
+.flecha.anterior {
+    left: 15px;
+}
+
+.flecha.siguiente {
+    right: 15px;
+}
+
+/* INDICADORES */
+
+.indicadores {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicadores button {
+    width: 35px;
+    height: 4px;
+    background-color: #ffffff;
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.indicadores button.seleccionado {
+    background-color: #d4af37;
+    opacity: 1;
+}
+
+/* ==========================
+   PRESENTACIÓN ÉLITE MODA
+========================== */
+
+.presentacion-elite {
+    background-color: #071a3d;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.contenido-presentacion {
+    max-width: 850px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* SUBTÍTULO */
+
+.subtitulo-elite {
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+/* TÍTULO PRINCIPAL */
+
+.contenido-presentacion h1 {
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 15px 0;
+}
+
+.contenido-presentacion h1 span {
+    color: #d4af37;
+}
+
+/* LÍNEAS DORADAS */
+
+.linea-dorada {
+    width: 100px;
+    height: 2px;
+    background-color: #d4af37;
+    margin: 25px auto;
+}
+
+/* FRASE PRINCIPAL */
+
+.contenido-presentacion h2 {
+    color: #d4af37;
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* DESCRIPCIÓN */
+
+.descripcion-elite {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+/* TÍTULO DE PROPUESTAS */
+
+.titulo-propuestas {
+    color: #d4af37;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* LISTA DE PROPUESTAS */
+
+.lista-propuestas {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 30px;
+}
+
+.lista-propuestas li {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* VENTA Y ALQUILER */
+
+.modalidad {
+    display: inline-block;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 12px 35px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin: 15px 0;
+}
+
+.modalidad span {
+    color: #ffffff;
+}
+
+/* FRASE FINAL */
+
+.frase-final {
+    color: #ffffff;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 25px;
+}
+
+.contenido-presentacion h3 {
+    color: #d4af37;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+/* ==========================
+   TARJETAS DE PRODUCTOS
+========================== */
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 30px 40px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* TARJETAS */
 
 .cards {
-    background: #faf8f2;
-
+    width: 250px;
+    background-color: #ffffff;
     border: 2px solid #d4af37;
     border-radius: 8px;
-
-    overflow: hidden;
+    padding: 15px;
     text-align: center;
-
-    box-shadow: 0 5px 15px rgba(7, 26, 61, 0.18);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    padding-bottom: 20px;
+    transition: transform 0.3s ease;
 }
-
-
-/* EFECTO AL PASAR EL MOUSE */
 
 .cards:hover {
-    transform: translateY(-8px);
-
-    box-shadow: 0 10px 25px rgba(7, 26, 61, 0.25);
+    transform: translateY(-5px);
 }
 
-
-/* IMAGEN DEL PRODUCTO */
+/* IMÁGENES */
 
 .cards > img {
     width: 100%;
-    height: 320px;
-
+    height: 250px;
     object-fit: cover;
-    display: block;
-
-    border-bottom: 1px solid #d4af37;
+    border-radius: 5px;
 }
-
 
 /* NOMBRE */
 
 .cards h2 {
     color: #071a3d;
-
-    font-size: 21px;
-    font-weight: 600;
-
-    margin: 20px 15px 10px;
+    font-size: 19px;
+    margin-top: 12px;
 }
-
-
-/* DESCRIPCIÓN */
-
-.cards p {
-    color: #4d5661;
-
-    font-size: 15px;
-    line-height: 1.5;
-
-    margin: 8px 20px;
-}
-
 
 /* PRECIO */
 
-.cards p:nth-of-type(2) {
-    color: #b08d20;
-
-    font-size: 21px;
+.cards p {
+    color: #b08d24;
+    font-size: 20px;
     font-weight: bold;
-
-    margin-top: 18px;
-    margin-bottom: 18px;
 }
-
-
-/* CONTENEDOR DE BOTONES */
-
-.cards .btn {
-    background: #071a3d;
-
-    color: white;
-
-    border: 1px solid #d4af37;
-    border-radius: 4px;
-
-    height: 42px;
-
-    margin: 5px;
-
-    cursor: pointer;
-
-    transition: 0.3s ease;
-}
-
 
 /* BOTONES */
 
 .cards .btn {
-    height: 42px;
-    margin: 5px;
-
-    background: #071a3d;
-    color: white;
-
+    background-color: #071a3d;
+    color: #ffffff;
     border: 1px solid #d4af37;
-    border-radius: 4px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    vertical-align: middle;
-
-    cursor: pointer;
-    transition: 0.3s ease;
+    border-radius: 5px;
+    margin: 4px;
+    padding: 8px 12px;
+    transition: 0.3s;
 }
 
-
-/* BOTÓN VER MÁS */
-
-.cards .btn:first-of-type {
-    width: 110px;
-    font-size: 14px;
+.cards .btn:hover {
+    background-color: #d4af37;
+    color: #071a3d;
 }
-
-
-/* BOTONES DE FAVORITO Y CARRITO */
-
-.cards .btn:nth-of-type(2),
-.cards .btn:nth-of-type(3) {
-    width: 42px;
-    padding: 0;
-}
-
 
 /* ICONOS */
 
 .cards .btn img {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
+/* ==========================
+   DISEÑO RESPONSIVE
+========================== */
 
-/* EFECTO HOVER */
+@media (max-width: 768px) {
 
-.cards .btn:hover {
-    background: #d4af37;
-    color: #071a3d;
+    .carrusel-presentacion {
+        width: 95%; /* Se adapta con márgenes limpios en tablets */
+    }
 
-    transform: translateY(-2px);
-}
+    .carrusel-imagenes {
+        height: 350px;
+    }
 
+    .contenido-presentacion h1 {
+        font-size: 29px;
+    }
 
-/* TABLET */
+    .contenido-presentacion h2 {
+        font-size: 19px;
+    }
 
-@media (max-width: 900px) {
+    .descripcion-elite {
+        font-size: 15px;
+    }
 
     .contenedor {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 40px;
+        padding: 20px;
     }
-
 }
 
+@media (max-width: 480px) {
 
-/* CELULAR */
-
-@media (max-width: 600px) {
-
-    .contenedor {
-        grid-template-columns: 1fr;
-        padding: 30px 20px;
+    .carrusel-presentacion {
+        width: 100%;
+        border-radius: 0; /* Ocupa de lado a lado en celulares de forma limpia */
+        border-left: none;
+        border-right: none;
     }
 
-    .cards > img {
-        height: 300px;
+    .carrusel-imagenes {
+        height: 280px;
     }
 
+    .contenido-presentacion h1 {
+        font-size: 25px;
+    }
+
+    .presentacion-elite {
+        padding: 40px 15px;
+    }
+
+    .cards {
+        width: 100%;
+        max-width: 300px;
+    }
 }

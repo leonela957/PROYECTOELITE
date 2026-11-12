@@ -11,10 +11,13 @@ import { Favoritos } from './paginas/favoritos/favoritos';
 
 import { Registro } from './auth/registro/registro';
 import { InicioSesion } from './auth/inicio-sesion/inicio-sesion';
+import { Productos } from './paginas/productos/productos';
 
 export const routes: Routes = [
 
     { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+
+    { path: 'productos', component: Productos},
 
     { path: 'inicio', component: Inicio },
     { path: 'tienda', component: Tienda },

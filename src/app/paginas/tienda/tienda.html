@@ -1,28 +1,148 @@
+
 <app-nav></app-nav>
 
+
+<!-- CARRUSEL DE PRESENTACIÓN -->
+
+<div class="carrusel-presentacion">
+
+    <div class="carrusel-imagenes">
+
+        <img src="assets/presentación1.JPG"
+             alt="Presentación 1"
+             [class.activa]="imagenActual === 0">
+
+        <img src="assets/presentación2.JPG"
+             alt="Presentación 2"
+             [class.activa]="imagenActual === 1">
+
+        <img src="assets/presentación3.JPG"
+             alt="Presentación 3"
+             [class.activa]="imagenActual === 2">
+
+        <img src="assets/presentación4.JPG"
+             alt="Presentación 4"
+             [class.activa]="imagenActual === 3">
+
+        <img src="assets/presentación5.JPG"
+             alt="Presentación 5"
+             [class.activa]="imagenActual === 4">
+
+    </div>
+
+    <!-- FLECHA ANTERIOR -->
+
+    <button type="button" class="flecha anterior"
+            (click)="anterior()">
+        &#10094;
+    </button>
+
+    <!-- FLECHA SIGUIENTE -->
+
+    <button type="button" class="flecha siguiente"
+            (click)="siguiente()">
+        &#10095;
+    </button>
+
+    <!-- INDICADORES -->
+
+    <div class="indicadores">
+
+        <button type="button" (click)="cambiarImagen(0)"
+                [class.seleccionado]="imagenActual === 0"></button>
+
+        <button type="button" (click)="cambiarImagen(1)"
+                [class.seleccionado]="imagenActual === 1"></button>
+
+        <button type="button" (click)="cambiarImagen(2)"
+                [class.seleccionado]="imagenActual === 2"></button>
+
+        <button type="button" (click)="cambiarImagen(3)"
+                [class.seleccionado]="imagenActual === 3"></button>
+
+        <button type="button" (click)="cambiarImagen(4)"
+                [class.seleccionado]="imagenActual === 4"></button>
+
+    </div>
+
+</div>
+
+
+<section class="presentacion-elite">
+
+    <div class="contenido-presentacion">
+
+        <span class="subtitulo-elite">ÉLITE PRODUCCIONES</span>
+
+        <h1>ÉLITE MODA <span>CIPOLLETTI</span></h1>
+
+        <div class="linea-dorada"></div>
+
+        <h2>Elegancia, distinción y estilo en cada detalle.</h2>
+
+        <p class="descripcion-elite">
+            ÉLITE MODA CIPOLLETTI nace para ofrecer una experiencia
+            exclusiva a quienes buscan lucir únicas en los momentos
+            más importantes de sus vidas.
+        </p>
+
+        <p class="titulo-propuestas">
+            CONTAMOS CON PROPUESTAS DE ALTA COSTURA PARA:
+        </p>
+
+        <ul class="lista-propuestas">
+            <li>Vestidos de novia</li>
+            <li>Vestidos de 15 años</li>
+            <li>Vestidos de egresadas</li>
+            <li>Vestidos para fiestas y eventos especiales</li>
+        </ul>
+
+        <div class="modalidad">
+            VENTA <span>&</span> ALQUILER
+        </div>
+
+        <p class="frase-final">
+            Porque cada celebración merece un look inolvidable.
+        </p>
+
+        <div class="linea-dorada"></div>
+
+        <h3>Donde la elegancia se convierte en protagonista.</h3>
+
+    </div>
+
+</section>
+
+
+
 <div class="contenedor">
+
     @for (producto of obtenerProductosFiltrados(); track producto.id) {
+
         <div class="cards">
+
             <img [src]="producto.imagen" [alt]="producto.nombre">
+
             <h2>{{producto.nombre}}</h2>
-            <p>{{producto.descripcion}}</p>
+
             <p>${{producto.precio}}</p>
-            <button class="btn">Ver más</button>
-           
-<button
-  class="btn"
-  (click)="agregarAFavoritos(producto)"
-  title="Agregar a favoritos"
->
-  <img src="assets/favorito.png" alt="Agregar a favoritos">
-</button>
+
+            <button class="btn" ><a routerLink="/productos">Ver más</a></button>
+
+            <button
+                class="btn"
+                (click)="agregarAFavoritos(producto)"
+                title="Agregar a favoritos"
+            >
+                <img src="assets/favorito.png" alt="Agregar a favoritos">
+            </button>
 
             <button class="btn" (click)="agregarACarrito(producto)">
-              <img src="assets/carrito.png" alt="">
+                <img src="assets/carrito.png" alt="Carrito">
             </button>
-            
+
         </div>
 
     }
-</div>
 
+</div>
