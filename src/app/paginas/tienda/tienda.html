@@ -127,7 +127,7 @@
 
             <p>${{producto.precio}}</p>
 
-            <button class="btn" ><a routerLink="/productos">Ver más</a></button>
+            <a class="btn" [routerLink]="['/productos', producto.id]">Ver más</a>
 
             <button
                 class="btn"
