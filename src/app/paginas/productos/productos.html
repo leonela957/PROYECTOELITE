@@ -11,20 +11,12 @@
 
       <div class="carrusel-imagenes">
 
-        <img
-          [src]="producto.imagen"
-          [alt]="producto.nombre"
-          [class.activa]="imagenActual === 0">
-
-        <img
-          [src]="producto.imagen"
-          [alt]="producto.nombre"
-          [class.activa]="imagenActual === 1">
-
-        <img
-          [src]="producto.imagen"
-          [alt]="producto.nombre"
-          [class.activa]="imagenActual === 2">
+        @for (imagen of imagenesProducto; track $index) {
+          <img
+            [src]="imagen"
+            [alt]="producto.nombre"
+            [class.activa]="imagenActual === $index">
+        }
 
       </div>
 
@@ -32,6 +24,7 @@
 
       <button type="button"
               class="flecha anterior"
+              aria-label="Imagen anterior"
               (click)="anterior()">
         &#10094;
       </button>
@@ -40,6 +33,7 @@
 
       <button type="button"
               class="flecha siguiente"
+              aria-label="Imagen siguiente"
               (click)="siguiente()">
         &#10095;
       </button>
@@ -48,20 +42,13 @@
 
       <div class="indicadores">
 
-        <button type="button"
-                (click)="cambiarImagen(0)"
-                [class.seleccionado]="imagenActual === 0">
-        </button>
-
-        <button type="button"
-                (click)="cambiarImagen(1)"
-                [class.seleccionado]="imagenActual === 1">
-        </button>
-
-        <button type="button"
-                (click)="cambiarImagen(2)"
-                [class.seleccionado]="imagenActual === 2">
-        </button>
+        @for (imagen of imagenesProducto; track $index) {
+          <button type="button"
+                  [attr.aria-label]="'Ver imagen ' + ($index + 1)"
+                  (click)="cambiarImagen($index)"
+                  [class.seleccionado]="imagenActual === $index">
+          </button>
+        }
 
       </div>
 

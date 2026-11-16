@@ -17,6 +17,14 @@ export class Productos implements OnInit {
 
   imagenActual: number = 0;
 
+  get imagenesProducto(): string[] {
+    return this.producto?.imagenes.length
+      ? this.producto.imagenes
+      : this.producto
+        ? [this.producto.imagen]
+        : [];
+  }
+
   constructor(
     private route: ActivatedRoute,
     private productoService: ProductoService
@@ -33,18 +41,17 @@ export class Productos implements OnInit {
   // CARRUSEL DE IMÁGENES
 
   siguiente(): void {
-    this.imagenActual++;
-
-    if (this.imagenActual > 2) {
-      this.imagenActual = 0;
+    const cantidadImagenes = this.imagenesProducto.length;
+    if (cantidadImagenes > 0) {
+      this.imagenActual = (this.imagenActual + 1) % cantidadImagenes;
     }
   }
 
   anterior(): void {
-    this.imagenActual--;
-
-    if (this.imagenActual < 0) {
-      this.imagenActual = 2;
+    const cantidadImagenes = this.imagenesProducto.length;
+    if (cantidadImagenes > 0) {
+      this.imagenActual =
+        (this.imagenActual - 1 + cantidadImagenes) % cantidadImagenes;
     }
   }
 

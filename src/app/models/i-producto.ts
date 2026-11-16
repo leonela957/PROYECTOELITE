@@ -4,7 +4,8 @@ export interface Producto {
   descripcion: string;
   precio: number;
   imagen: string;
-  categoria: 'zapatillas' | 'vestidos' | 'accesorios';
+  imagenes: string[];
+  categoria: 'zapatillas' | 'vestidos' | 'accesorios'| 'ofertas';
   stock: number;
   color?: string;
   talle?: string;
