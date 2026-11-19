@@ -216,7 +216,7 @@ export class ProductoService {
     },
     {
       id: 15,
-      nombre: 'VESTIDO DE NIÑA LARGO',
+      nombre: 'VESTIDO DE NIÑA CORTO',
       descripcion: 'Versátil vestido verde con cuerpo blanco de flores bordadas y falda de tul, acompañado de una capita manga larga al tono. Conjunto de dos piezas compuesto por un vestido musculosa con corset blanco, guarda de flores bordadas en la cintura y falda de tul verde, más una capita de manga larga con voladitos y botón. Ideal para reuniones familiares, almuerzos festivos, actos escolares y eventos de media estación.',
       precio: 100000,
       imagen: 'assets/VestidoNiña5-FrenteConCapa.JPG',
@@ -227,7 +227,51 @@ export class ProductoService {
       categoria: 'vestidos',
       stock: 1,
       color: 'Verde Esmeralda',
-    } 
+    },
+    {
+      id: 16,
+      nombre: 'ZAPATILLAS DE FIESTA',
+      descripcion: 'Zapatillas blancas de plataforma intervenidas artesanalmente con detalles decorativos que las convierten en piezas únicas. Cada diseño combina delicadas aplicaciones de perlas, strass, lentejuelas, piedras brillantes y cintas decorativas, con distintas combinaciones de colores y terminaciones. Ideales para quienes buscan un calzado original, elegante y con un toque de brillo.',
+      precio: 100000,
+      imagen: 'assets/zapatillas1.JPG',
+      imagenes:[
+        'assets/assets/zapatillas1.JPG',
+        'assets/assets/zapatillas2.JPG'
+      ],
+      categoria: 'zapatillas',
+      stock: 1,
+      color: 'Todos los colores disponibles',
+      talle: '35, 36, 37, 38, 39, 40'
+    },
+    {
+      id: 17,
+      nombre: 'Tiaras y Coronas',
+      descripcion: 'Tiaras y coronas ornamentales con diseños elegantes y delicados, elaboradas con detalles trabajados, piedras brillantes y aplicaciones decorativas. Disponibles en diferentes combinaciones de colores, como azul, verde, rojo y plateado, cada pieza aporta un toque de distinción y protagonismo, ideal para complementar ocasiones especiales.',
+      precio: 100000,
+      imagen: 'assets/accesorios1.JPG',
+      imagenes:[
+        'assets/assets/accesorios1.JPG',
+        'assets/assets/accesorioas2.JPG'
+      ],
+      categoria: 'accesorios',
+      stock: 1,
+      color: 'Todos los colores disponibles',
+    },
+    {
+      id: 18,
+      nombre: 'ZAPATILLAS + TIARA',
+      descripcion: 'Con la compra de cualquiera de nuestras zapatillas personalizadas, ¡te llevás una tiara de regalo! Una propuesta especial que combina diseños exclusivos, brillo y elegancia para completar tu look con un detalle único.',
+      precio: 100000,
+      imagen: 'assets/oferta1.JPG',
+      imagenes:[
+        'assets/assets/oferta1.JPG',
+        'assets/assets/oferta2.JPG'
+      ],
+      categoria: 'ofertas',
+      stock: 1,
+      color: 'Todos los colores disponibles',
+    }
+
   ];
 
   obtenerProductos(): Producto[] {
