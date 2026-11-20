@@ -31,7 +31,7 @@
               </td>
               <td>{{ producto.descripcion }}</td>
               <td>{{ producto.color }}</td>
-              <td>${{ producto.precio }}</td>
+              <td>${{ producto.precio }} x{{ producto.cantidad }}</td>
               <td>
                 <button class="btn" (click)="quitarDelCarrito(producto.id)"> ❌ </button>
               </td>
@@ -52,7 +52,7 @@
         Vaciar carrito
       </button>
 
-      <button   class="btn btn-danger me-2">
+      <button class="btn btn-danger me-2" (click)="finalizarCompra()">
         Finalizar compra
       </button>
 

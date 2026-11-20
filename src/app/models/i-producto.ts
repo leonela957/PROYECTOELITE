@@ -9,4 +9,5 @@ export interface Producto {
   stock: number;
   color?: string;
   talle?: string;
+  cantidad?: number;   // solo se usa en el carrito
 }

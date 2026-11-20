@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Producto } from '../../models/i-producto';
 import { ProductoService } from '../../servicios/producto-service';
@@ -27,14 +27,18 @@ export class Productos implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
 
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.producto = this.productoService.obtenerProductoPorId(id);
+    this.productoService.obtenerProductoPorId(id).subscribe({
+      next: p => { this.producto = p; this.cdr.markForCheck(); },
+      error: () => { this.producto = undefined; this.cdr.markForCheck(); }
+    });
 
   }
 

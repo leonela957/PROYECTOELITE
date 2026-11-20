@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Nav } from '../../compartidos/nav/nav';
 import { Producto } from '../../models/i-producto';
 import { FavoritoService } from '../../servicios/favoritoService';
@@ -21,14 +21,18 @@ export class Tienda implements OnInit {
     private favoritoService: FavoritoService,
     private carritoService: CarritoService,
     public categoriaService: CategoriaService,
-    public productoService: ProductoService
+    public productoService: ProductoService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   productos: Producto[] = [];
 
   ngOnInit(): void {
 
-    this.productos = this.productoService.obtenerProductos();
+    this.productoService.obtenerProductos().subscribe(lista => {
+      this.productos = lista;
+      this.cdr.markForCheck();
+    });
 
     console.log('PRODUCTOS:', this.productos);
 

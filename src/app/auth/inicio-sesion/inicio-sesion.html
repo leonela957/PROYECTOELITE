@@ -14,7 +14,7 @@
 
         </div>
 
-        <form>
+        <form (ngSubmit)="iniciar()">
 
             <!-- CORREO ELECTRÓNICO -->
             <div class="mb-4">
@@ -24,7 +24,7 @@
 
                 <input
                     type="email"
-                    id="email"
+                    id="email" name="email" [(ngModel)]="email"
                     class="form-control"
                     placeholder="Ingresá tu correo electrónico"
                     required>
@@ -38,7 +38,7 @@
 
                 <input
                     type="password"
-                    id="password"
+                    id="password" name="password" [(ngModel)]="password"
                     class="form-control"
                     placeholder="Ingresá tu contraseña"
                     required>

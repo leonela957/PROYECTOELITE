@@ -48,5 +48,10 @@
             <img src="assets\inicioSesion.png" alt="Iniciar sesión">
         </a>
 
+    
+        @if (auth.logueado) {
+            <a href="#" (click)="salir($event)" title="Cerrar sesión">Salir</a>
+        }
+
     </div>
 </nav>
