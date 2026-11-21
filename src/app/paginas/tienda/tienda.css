@@ -1,3 +1,4 @@
+
 /* ==========================
    FONDO GENERAL Y CONTENEDOR
 ========================== */
@@ -8,7 +9,6 @@
     min-height: 100vh;
 }
 
-/* Contenedor general para que todo conserve el mismo ancho y no sobresalga */
 .contenedor-principal {
     max-width: 1200px;
     margin: 0 auto;
@@ -16,16 +16,16 @@
 }
 
 /* ==========================
-   CARRUSEL DE PRESENTACIÓN (ANCHO AJUSTADO Y MÁS ALTO)
+   CARRUSEL DE PRESENTACIÓN
 ========================== */
 
 .carrusel-presentacion {
     position: relative;
     width: 100%;
-    max-width: 1100px; /* Ancho controlado para que respire por los lados */
+    max-width: 1100px;
     margin: 20px auto 40px auto;
     overflow: hidden;
-    border-radius: 8px; /* Bordes redondeados elegantes */
+    border-radius: 8px;
     border: 2px solid #d4af37;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -33,7 +33,7 @@
 .carrusel-imagenes {
     position: relative;
     width: 100%;
-    height: 480px; /* Altura aumentada para que las imágenes se luzcan mejor */
+    height: 480px;
 }
 
 .carrusel-imagenes img {
@@ -49,7 +49,6 @@
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-/* Muestra únicamente la imagen activa */
 .carrusel-imagenes img.activa {
     opacity: 1;
     visibility: visible;
@@ -131,15 +130,11 @@
     padding: 20px;
 }
 
-/* SUBTÍTULO */
-
 .subtitulo-elite {
     color: #d4af37;
     font-size: 13px;
     letter-spacing: 4px;
 }
-
-/* TÍTULO PRINCIPAL */
 
 .contenido-presentacion h1 {
     color: #ffffff;
@@ -153,16 +148,12 @@
     color: #d4af37;
 }
 
-/* LÍNEAS DORADAS */
-
 .linea-dorada {
     width: 100px;
     height: 2px;
     background-color: #d4af37;
     margin: 25px auto;
 }
-
-/* FRASE PRINCIPAL */
 
 .contenido-presentacion h2 {
     color: #d4af37;
@@ -171,16 +162,12 @@
     margin-bottom: 25px;
 }
 
-/* DESCRIPCIÓN */
-
 .descripcion-elite {
     color: #ffffff;
     font-size: 16px;
     line-height: 1.9;
     margin-bottom: 35px;
 }
-
-/* TÍTULO DE PROPUESTAS */
 
 .titulo-propuestas {
     color: #d4af37;
@@ -189,8 +176,6 @@
     font-weight: 600;
     margin-bottom: 20px;
 }
-
-/* LISTA DE PROPUESTAS */
 
 .lista-propuestas {
     list-style: none;
@@ -205,8 +190,6 @@
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
-/* VENTA Y ALQUILER */
-
 .modalidad {
     display: inline-block;
     color: #d4af37;
@@ -220,8 +203,6 @@
 .modalidad span {
     color: #ffffff;
 }
-
-/* FRASE FINAL */
 
 .frase-final {
     color: #ffffff;
@@ -293,21 +274,41 @@
     font-weight: bold;
 }
 
-/* BOTONES */
+/* ==========================
+   BOTONES Y ENLACES
+========================== */
+
+/* Color dorado para los botones de las tarjetas */
 
 .cards .btn {
-    background-color: #071a3d;
-    color: #ffffff;
-    border: 1px solid #d4af37;
+    background-color: #d4af37;
+    color: #071a3d;
+    border: 1px solid #b08d24;
     border-radius: 5px;
     margin: 4px;
     padding: 8px 12px;
     transition: 0.3s;
+    font-weight: 600;
 }
 
+/* Efecto al pasar el cursor */
+
 .cards .btn:hover {
-    background-color: #d4af37;
-    color: #071a3d;
+    background-color: #071a3d;
+    color: #d4af37;
+    border-color: #d4af37;
+}
+
+/* Quitar subrayado de Ver más */
+
+.cards a {
+    text-decoration: none;
+}
+
+/* Mantener el enlace sin subrayado al pasar el cursor */
+
+.cards a:hover {
+    text-decoration: none;
 }
 
 /* ICONOS */
@@ -325,7 +326,7 @@
 @media (max-width: 768px) {
 
     .carrusel-presentacion {
-        width: 95%; /* Se adapta con márgenes limpios en tablets */
+        width: 95%;
     }
 
     .carrusel-imagenes {
@@ -353,7 +354,7 @@
 
     .carrusel-presentacion {
         width: 100%;
-        border-radius: 0; /* Ocupa de lado a lado en celulares de forma limpia */
+        border-radius: 0;
         border-left: none;
         border-right: none;
     }

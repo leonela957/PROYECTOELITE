@@ -1,6 +1,5 @@
 
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Nav } from '../../compartidos/nav/nav';
 import { Producto } from '../../models/i-producto';
 import { FavoritoService } from '../../servicios/favoritoService';
 import { CarritoService } from '../../servicios/carritoService';
@@ -10,7 +9,7 @@ import { ProductoService } from '../../servicios/producto-service';
 
 @Component({
   selector: 'app-tienda',
-  imports: [Nav, RouterLink],
+  imports: [ RouterLink],
   templateUrl: './tienda.html',
   styleUrl: './tienda.css',
 })

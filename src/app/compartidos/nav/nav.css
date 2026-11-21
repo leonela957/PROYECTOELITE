@@ -1,13 +1,12 @@
+
 /* =========================
    NAVBAR ÉLITE PRODUCCIONES
 ========================= */
 
 nav {
     position: relative;
-
     width: 100%;
     min-height: 115px;
-
     padding: 15px 45px;
 
     background: #071a3d;
@@ -20,7 +19,6 @@ nav {
     justify-content: space-between;
 
     box-sizing: border-box;
-
     color: white;
 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
@@ -36,28 +34,60 @@ nav {
 nav .logo {
     display: flex;
     align-items: center;
-
     text-decoration: none;
 }
 
 nav .logo img {
     width: 100px;
     height: 90px;
-
     object-fit: contain;
-
     transition: 0.3s ease;
 }
 
 nav .logo img:hover {
     transform: scale(1.05);
-
     filter: drop-shadow(0 0 6px #d4af37);
 }
 
 
 /* =========================
-   TIPO DE VESTIDO
+   BOTÓN VOLVER A LA TIENDA
+========================= */
+
+.volver-tienda {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    background: #071a3d;
+    color: white;
+
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+
+    transition: 0.3s ease;
+}
+
+.volver-tienda:hover {
+    background: #d4af37;
+    color: #071a3d;
+
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.45);
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FILTRO DE CATEGORÍAS
 ========================= */
 
 .tipo-vestido {
@@ -66,13 +96,12 @@ nav .logo img:hover {
 
     gap: 12px;
 
-    margin-left: auto;
-    margin-right: 35px;
+    margin-left: 0;
+    margin-right: 25px;
 }
 
 .tipo-vestido label {
     color: white;
-
     font-size: 15px;
     letter-spacing: 0.5px;
 }
@@ -83,16 +112,13 @@ nav .logo img:hover {
     padding: 10px 35px 10px 12px;
 
     background: #071a3d;
-
     color: white;
 
     border: 1px solid #d4af37;
     border-radius: 4px;
 
     outline: none;
-
     font-size: 14px;
-
     cursor: pointer;
 
     transition: 0.3s ease;
@@ -102,8 +128,7 @@ nav .logo img:hover {
 .tipo-vestido select:focus {
     border-color: #f0d66b;
 
-    box-shadow:
-        0 0 8px rgba(212, 175, 55, 0.45);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.45);
 }
 
 .tipo-vestido select option {
@@ -119,7 +144,6 @@ nav .logo img:hover {
 .nav-iconos {
     display: flex;
     align-items: center;
-
     gap: 18px;
 }
 
@@ -134,7 +158,6 @@ nav .logo img:hover {
     justify-content: center;
 
     text-decoration: none;
-
     border: 1px solid transparent;
 
     transition: 0.3s ease;
@@ -145,7 +168,6 @@ nav .logo img:hover {
     height: 36px;
 
     object-fit: contain;
-
     transition: 0.3s ease;
 }
 
@@ -159,13 +181,11 @@ nav .logo img:hover {
 
     border-color: rgba(212, 175, 55, 0.5);
 
-    box-shadow:
-        0 0 8px rgba(212, 175, 55, 0.25);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
 }
 
 .nav-iconos a:hover img {
     transform: scale(1.12);
-
     filter: drop-shadow(0 0 6px #d4af37);
 }
 
@@ -178,14 +198,11 @@ nav .logo img:hover {
 
     nav {
         min-height: 105px;
-
         padding: 10px 25px;
 
         flex-wrap: wrap;
-
         gap: 15px;
     }
-
 
     /* Logo */
 
@@ -194,13 +211,21 @@ nav .logo img:hover {
         height: 70px;
     }
 
+    /* Botón tienda */
 
-    /* Selector */
+    .volver-tienda {
+        margin-left: 10px;
+        margin-right: 0;
+
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    /* Filtro */
 
     .tipo-vestido {
         margin-left: auto;
         margin-right: 0;
-
         gap: 8px;
     }
 
@@ -210,22 +235,16 @@ nav .logo img:hover {
 
     .tipo-vestido select {
         min-width: 125px;
-
         padding: 8px 10px;
-
         font-size: 13px;
     }
-
 
     /* Iconos */
 
     .nav-iconos {
         width: 100%;
-
         justify-content: center;
-
         gap: 15px;
-
         padding-top: 8px;
     }
 
@@ -249,14 +268,11 @@ nav .logo img:hover {
 
     nav {
         min-height: auto;
-
         padding: 18px 20px;
 
         flex-direction: column;
-
         gap: 15px;
     }
-
 
     /* Logo */
 
@@ -265,19 +281,16 @@ nav .logo img:hover {
         height: 75px;
     }
 
+    /* Botón tienda */
 
-    /* Selector */
+    .volver-tienda {
+    margin-left: 80px;
+    margin-right: 15px;
+    }
 
     .tipo-vestido {
-        width: 100%;
-
-        margin: 0;
-
-        justify-content: center;
-
-        flex-direction: column;
-
-        gap: 7px;
+    margin-left: 0;
+    margin-right: 25px;
     }
 
     .tipo-vestido label {
@@ -287,20 +300,15 @@ nav .logo img:hover {
     .tipo-vestido select {
         width: 80%;
         max-width: 250px;
-
         padding: 9px;
     }
-
 
     /* Iconos */
 
     .nav-iconos {
         width: 100%;
-
         justify-content: center;
-
         gap: 8px;
-
         padding-top: 5px;
     }
 
