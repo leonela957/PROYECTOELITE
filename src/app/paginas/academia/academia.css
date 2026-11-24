@@ -1,0 +1,613 @@
+
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #071a3d;
+}
+
+.academia-page {
+    width: 100%;
+    overflow: hidden;
+    background-color: #071a3d;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==========================
+   PORTADA PRINCIPAL
+========================== */
+
+.academia-portada {
+    position: relative;
+    min-height: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 26, 61, 0.98),
+            rgba(7, 26, 61, 0.85),
+            rgba(7, 26, 61, 0.55)
+        ),
+        url('/assets/academia/portada-academia.jpg');
+
+    background-size: cover;
+    background-position: center;
+    border-bottom: 3px solid #d4af37;
+}
+
+
+/* NAVEGACIÓN */
+
+.academia-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 7%;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 20px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #d4af37;
+    color: #071a3d;
+}
+
+.produccion {
+    color: #d4af37;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* CONTENIDO PORTADA */
+
+.portada-contenido {
+    max-width: 850px;
+    padding: 120px 10% 70px;
+}
+
+.subtitulo,
+.etiqueta {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.portada-contenido h1 {
+    font-size: clamp(55px, 8vw, 100px);
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin: 20px 0 0;
+}
+
+.portada-contenido h1 span {
+    color: #d4af37;
+}
+
+.portada-contenido h2 {
+    font-size: 34px;
+    letter-spacing: 10px;
+    font-weight: 400;
+    margin: 5px 0 20px;
+}
+
+.linea-dorada {
+    width: 100px;
+    height: 3px;
+    background-color: #d4af37;
+    margin: 20px 0;
+}
+
+.portada-contenido p {
+    max-width: 570px;
+    color: #e0e5ef;
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 25px 0 30px;
+}
+
+
+/* BOTÓN INSTAGRAM */
+
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 25px;
+    background-color: #d4af37;
+    color: #071a3d;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #d4af37;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.btn-instagram:hover {
+    background-color: transparent;
+    color: #d4af37;
+}
+
+
+/* ==========================
+   SOBRE LA ACADEMIA
+========================== */
+
+.sobre-academia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    padding: 100px 9%;
+    background-color: #0b2148;
+}
+
+.sobre-imagen {
+    height: 400px;
+    width: 100%;
+    border: 2px solid #d4af37;
+    overflow: hidden;
+}
+
+.imagen-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(
+            135deg,
+            #102b59,
+            #071a3d
+        );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: #d4af37;
+}
+
+.imagen-placeholder i {
+    font-size: 65px;
+}
+
+.imagen-placeholder span {
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.sobre-texto h2 {
+    font-size: 38px;
+    line-height: 1.3;
+    margin: 20px 0;
+}
+
+.sobre-texto h2 span {
+    color: #d4af37;
+}
+
+.sobre-texto p {
+    color: #dce2ee;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================
+   FORMACIÓN
+========================== */
+
+.formacion-academia {
+    padding: 95px 8%;
+    background-color: #071a3d;
+}
+
+.titulo-seccion {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 55px;
+}
+
+.titulo-seccion > span {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.titulo-seccion h2 {
+    font-size: 38px;
+    margin: 18px 0;
+}
+
+.titulo-seccion .linea-dorada {
+    margin: 20px auto;
+}
+
+.titulo-seccion p {
+    color: #cbd3e1;
+    line-height: 1.8;
+}
+
+
+/* TARJETAS DE FORMACIÓN */
+
+.formacion-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.formacion-card {
+    background-color: white;
+    color: #071a3d;
+    padding: 35px 28px;
+    text-align: center;
+    border: 1px solid #d4af37;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.formacion-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.18);
+}
+
+.formacion-icono {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    background-color: #071a3d;
+    color: #d4af37;
+    font-size: 32px;
+}
+
+.formacion-card h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+    color: #071a3d;
+}
+
+.formacion-card p {
+    font-size: 15px;
+    color: #505050;
+    line-height: 1.7;
+}
+
+
+/* ==========================
+   GALERÍA
+========================== */
+
+.galeria-academia {
+    padding: 95px 8%;
+    background-color: #0b2148;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.galeria-item {
+    height: 320px;
+    border: 1px solid #d4af37;
+    overflow: hidden;
+}
+
+.galeria-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(
+            135deg,
+            #142f5c,
+            #071a3d
+        );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #d4af37;
+    transition: 0.4s;
+}
+
+.galeria-placeholder:hover {
+    background: #173565;
+}
+
+.galeria-placeholder i {
+    font-size: 50px;
+}
+
+.galeria-placeholder span {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+
+/* ==========================
+   VIDEOS
+========================== */
+
+.videos-academia {
+    padding: 95px 8%;
+    background-color: #071a3d;
+}
+
+.video-placeholder {
+    max-width: 850px;
+    min-height: 350px;
+    margin: auto;
+    border: 2px solid #d4af37;
+    background:
+        linear-gradient(
+            135deg,
+            #102b59,
+            #050f25
+        );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 35px;
+}
+
+.video-placeholder i {
+    color: #d4af37;
+    font-size: 75px;
+    margin-bottom: 20px;
+}
+
+.video-placeholder h3 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.video-placeholder p {
+    max-width: 500px;
+    color: #cbd3e1;
+    line-height: 1.8;
+}
+
+
+/* ==========================
+   INSTAGRAM
+========================== */
+
+.instagram-academia {
+    padding: 90px 20px;
+    text-align: center;
+    background:
+        linear-gradient(
+            rgba(7, 26, 61, 0.94),
+            rgba(7, 26, 61, 0.97)
+        ),
+        url('/assets/academia/portada-academia.jpg');
+
+    background-size: cover;
+    background-position: center;
+    border-top: 2px solid #d4af37;
+    border-bottom: 2px solid #d4af37;
+}
+
+.instagram-contenido {
+    max-width: 750px;
+    margin: auto;
+}
+
+.icono-instagram {
+    display: block;
+    color: #d4af37;
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.instagram-contenido > span {
+    color: #d4af37;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.instagram-contenido h2 {
+    font-size: 38px;
+    margin: 20px 0;
+}
+
+.instagram-contenido h2 span {
+    color: #d4af37;
+}
+
+.instagram-contenido p {
+    color: #dce2ee;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.academia-footer {
+    padding: 45px 20px;
+    text-align: center;
+    background-color: #050f25;
+}
+
+.academia-footer h3 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.academia-footer h3 span {
+    color: #d4af37;
+}
+
+.academia-footer p {
+    color: #bfc8d8;
+    margin-bottom: 15px;
+}
+
+.academia-footer a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.academia-footer a:hover {
+    color: white;
+}
+
+.footer-linea {
+    width: 80%;
+    max-width: 500px;
+    height: 1px;
+    background-color: #d4af37;
+    margin: 25px auto;
+}
+
+.academia-footer small {
+    color: #8995a9;
+    font-size: 12px;
+}
+
+
+/* ==========================
+   RESPONSIVE - TABLETS
+========================== */
+
+@media (max-width: 900px) {
+
+    .sobre-academia {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 70px 7%;
+    }
+
+    .formacion-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==========================
+   RESPONSIVE - CELULARES
+========================== */
+
+@media (max-width: 600px) {
+
+    .academia-portada {
+        min-height: 620px;
+    }
+
+    .academia-nav {
+        padding: 20px 5%;
+        gap: 12px;
+    }
+
+    .btn-volver {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .produccion {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .portada-contenido {
+        padding: 120px 7% 65px;
+    }
+
+    .portada-contenido h1 {
+        font-size: 52px;
+        letter-spacing: 2px;
+    }
+
+    .portada-contenido h2 {
+        font-size: 25px;
+        letter-spacing: 7px;
+    }
+
+    .portada-contenido p {
+        font-size: 15px;
+    }
+
+    .sobre-academia {
+        padding: 60px 7%;
+    }
+
+    .sobre-imagen {
+        height: 260px;
+    }
+
+    .sobre-texto h2,
+    .titulo-seccion h2,
+    .instagram-contenido h2 {
+        font-size: 29px;
+    }
+
+    .formacion-academia,
+    .galeria-academia,
+    .videos-academia {
+        padding: 65px 7%;
+    }
+
+    .formacion-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-item {
+        height: 250px;
+    }
+
+    .video-placeholder {
+        min-height: 300px;
+        padding: 25px;
+    }
+
+    .instagram-academia {
+        padding: 65px 20px;
+    }
+
+}

@@ -1,5 +1,7 @@
+
 import { Component, signal } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 import { Footer } from './compartidos/footer/footer';
 import { Nav } from './compartidos/nav/nav';
 
@@ -12,13 +14,23 @@ import { Nav } from './compartidos/nav/nav';
 export class App {
   protected readonly title = signal('proyectoElite');
 
-  public mostrarNav = true;
+  public mostrarNav = false;
 
   constructor(private router: Router) {
 
-  this.router.events.subscribe(() => {
-    this.mostrarNav = this.router.url !== '/inicio';
-  });
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
 
-}
+        const ruta = this.router.url.split('?')[0];
+
+        this.mostrarNav =
+          ruta === '/tienda' ||
+          ruta === '/carrito' ||
+          ruta === '/favoritos' ||
+          ruta.startsWith('/productos/');
+
+      });
+
+  }
 }

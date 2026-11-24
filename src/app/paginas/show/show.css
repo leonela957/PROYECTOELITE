@@ -1,0 +1,494 @@
+
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+:host {
+    display: block;
+    background-color: #071a3d;
+    min-height: 100vh;
+}
+
+.show-page {
+    width: 100%;
+    overflow: hidden;
+    background-color: #071a3d;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==========================
+   PORTADA PRINCIPAL
+========================== */
+
+.show-portada {
+    position: relative;
+    min-height: 650px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7, 26, 61, 0.98),
+            rgba(7, 26, 61, 0.82),
+            rgba(7, 26, 61, 0.65)
+        ),
+        url('/assets/stream/portada-stream.jpg');
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid #d4af37;
+}
+
+
+/* NAVEGACIÓN */
+
+.show-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 7%;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 20px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.btn-volver:hover {
+    background-color: #d4af37;
+    color: #071a3d;
+}
+
+.produccion {
+    color: #d4af37;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* CONTENIDO DE PORTADA */
+
+.portada-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    padding: 95px 10%;
+    margin: auto 0;
+}
+
+.subtitulo,
+.etiqueta {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.portada-contenido h1 {
+    font-size: clamp(55px, 8vw, 100px);
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin: 20px 0;
+}
+
+.portada-contenido h1 span {
+    color: #d4af37;
+}
+
+.linea-dorada {
+    width: 100px;
+    height: 3px;
+    background-color: #d4af37;
+    margin: 20px 0;
+}
+
+.portada-contenido h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.portada-contenido p {
+    max-width: 550px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e0e5ef;
+    margin-bottom: 30px;
+}
+
+
+/* BOTÓN YOUTUBE */
+
+.btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 25px;
+    background-color: #d4af37;
+    color: #071a3d;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #d4af37;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.btn-youtube:hover {
+    background-color: transparent;
+    color: #d4af37;
+}
+
+
+/* ==========================
+   SOBRE EL PROGRAMA
+========================== */
+
+.sobre-show {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    padding: 100px 9%;
+    background-color: #0b2148;
+}
+
+.sobre-imagen {
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+}
+
+.sobre-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.sobre-imagen img:hover {
+    transform: scale(1.05);
+}
+
+.sobre-texto h2 {
+    font-size: 38px;
+    margin: 18px 0;
+}
+
+.sobre-texto h2 span {
+    color: #d4af37;
+}
+
+.sobre-texto p {
+    color: #dce2ee;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================
+   CONTENIDO DEL STREAM
+========================== */
+
+.contenido-show {
+    padding: 95px 8%;
+    background-color: #071a3d;
+}
+
+.titulo-seccion {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 55px;
+}
+
+.titulo-seccion span {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.titulo-seccion h2 {
+    font-size: 38px;
+    margin: 18px 0;
+}
+
+.titulo-seccion .linea-dorada {
+    margin: 20px auto;
+}
+
+.titulo-seccion p {
+    color: #cbd3e1;
+    line-height: 1.8;
+}
+
+
+/* TARJETAS */
+
+.show-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.show-card {
+    background-color: white;
+    color: #071a3d;
+    border: 1px solid #d4af37;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.show-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(212, 175, 55, 0.18);
+}
+
+.card-imagen {
+    height: 230px;
+    overflow: hidden;
+}
+
+.card-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.show-card:hover .card-imagen img {
+    transform: scale(1.07);
+}
+
+.card-texto {
+    padding: 25px;
+}
+
+.card-texto h3 {
+    color: #071a3d;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card-texto p {
+    color: #444;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+
+/* ==========================
+   SECCIÓN YOUTUBE
+========================== */
+
+.youtube-show {
+    padding: 90px 20px;
+    text-align: center;
+    background:
+        linear-gradient(
+            rgba(7, 26, 61, 0.93),
+            rgba(7, 26, 61, 0.96)
+        ),
+        url('/assets/stream/portada-stream.jpg');
+
+    background-size: cover;
+    background-position: center;
+    border-top: 2px solid #d4af37;
+    border-bottom: 2px solid #d4af37;
+}
+
+.youtube-contenido {
+    max-width: 750px;
+    margin: auto;
+}
+
+.icono-youtube {
+    display: block;
+    color: #d4af37;
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.youtube-contenido > span {
+    color: #d4af37;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.youtube-contenido h2 {
+    font-size: 38px;
+    margin: 20px 0;
+}
+
+.youtube-contenido h2 span {
+    color: #d4af37;
+}
+
+.youtube-contenido p {
+    color: #dce2ee;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.show-footer {
+    padding: 45px 20px;
+    text-align: center;
+    background-color: #050f25;
+}
+
+.show-footer h3 {
+    font-size: 27px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.show-footer h3 span {
+    color: #d4af37;
+}
+
+.show-footer p {
+    color: #bfc8d8;
+    margin-bottom: 15px;
+}
+
+.show-footer a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.show-footer a:hover {
+    color: white;
+}
+
+.footer-linea {
+    width: 80%;
+    max-width: 500px;
+    height: 1px;
+    background-color: #d4af37;
+    margin: 25px auto;
+}
+
+.show-footer small {
+    color: #8995a9;
+    font-size: 12px;
+}
+
+
+/* ==========================
+   RESPONSIVE - TABLETS
+========================== */
+
+@media (max-width: 900px) {
+
+    .sobre-show {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 70px 7%;
+    }
+
+    .sobre-imagen {
+        height: 350px;
+    }
+
+    .show-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==========================
+   RESPONSIVE - CELULARES
+========================== */
+
+@media (max-width: 600px) {
+
+    .show-portada {
+        min-height: 600px;
+    }
+
+    .show-nav {
+        padding: 20px 5%;
+        gap: 15px;
+    }
+
+    .btn-volver {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .produccion {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .portada-contenido {
+        padding: 70px 7%;
+    }
+
+    .portada-contenido h1 {
+        font-size: 55px;
+        letter-spacing: 2px;
+    }
+
+    .portada-contenido h2 {
+        font-size: 23px;
+    }
+
+    .portada-contenido p {
+        font-size: 15px;
+    }
+
+    .sobre-show {
+        padding: 60px 7%;
+    }
+
+    .sobre-imagen {
+        height: 250px;
+    }
+
+    .sobre-texto h2,
+    .titulo-seccion h2,
+    .youtube-contenido h2 {
+        font-size: 29px;
+    }
+
+    .contenido-show {
+        padding: 65px 7%;
+    }
+
+    .show-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card-imagen {
+        height: 220px;
+    }
+
+    .youtube-show {
+        padding: 65px 20px;
+    }
+
+}

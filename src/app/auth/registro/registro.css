@@ -148,3 +148,29 @@
         font-size: 26px;
     }
 }
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+    margin-bottom: 25px;
+
+    background-color: #071a3d;
+    color: #d4af37;
+
+    border: 1px solid #d4af37;
+    border-radius: 2px;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #d4af37;
+    color: #071a3d;
+}

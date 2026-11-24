@@ -1,0 +1,550 @@
+
+/* ==========================
+   CONFIGURACIÓN GENERAL
+========================== */
+
+:host {
+    display: block;
+    background-color: #071a3d;
+    color: white;
+}
+
+.barberia-page {
+    width: 100%;
+    overflow: hidden;
+    background-color: #071a3d;
+    font-family: Arial, sans-serif;
+}
+
+.barberia-page * {
+    box-sizing: border-box;
+}
+
+.linea-dorada {
+    width: 75px;
+    height: 3px;
+    background-color: #d4af37;
+    margin: 22px auto;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: #d4af37;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+
+/* ==========================
+   PORTADA
+========================== */
+
+.barberia-portada {
+    min-height: 680px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background:
+        linear-gradient(rgba(7, 26, 61, 0.78), rgba(7, 26, 61, 0.88)),
+        url('/assets/barberia/portada-barberia.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.barberia-nav {
+    width: 100%;
+    min-height: 85px;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 20px;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: #d4af37;
+    color: #071a3d;
+}
+
+.produccion {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.portada-contenido {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 90px 25px;
+    text-align: center;
+}
+
+.portada-contenido h1 {
+    color: white;
+    font-size: clamp(48px, 8vw, 85px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    margin: 10px 0;
+}
+
+.portada-contenido h1 span {
+    color: #d4af37;
+}
+
+.portada-contenido .linea-dorada {
+    margin: 25px auto;
+}
+
+.subtitulo {
+    color: #d4af37;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.portada-contenido p:not(.subtitulo) {
+    color: #eeeeee;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 20px auto 30px;
+}
+
+.btn-barber {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #d4af37;
+    color: #071a3d;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-barber:hover {
+    background-color: white;
+    color: #071a3d;
+}
+
+
+/* ==========================
+   SOBRE LA BARBERÍA
+========================== */
+
+.sobre-barberia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    padding: 100px 10%;
+    background-color: #ffffff;
+    color: #071a3d;
+}
+
+.sobre-imagen {
+    width: 100%;
+}
+
+.imagen-placeholder {
+    min-height: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #e9edf3;
+    border: 2px solid #d4af37;
+    color: #071a3d;
+}
+
+.imagen-placeholder i {
+    font-size: 65px;
+    color: #d4af37;
+}
+
+.imagen-placeholder span {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.sobre-texto .etiqueta {
+    color: #a9871e;
+}
+
+.sobre-texto h2 {
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.sobre-texto h2 span {
+    color: #b18d24;
+}
+
+.sobre-texto .linea-dorada {
+    margin: 20px 0;
+}
+
+.sobre-texto p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #333333;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================
+   SERVICIOS
+========================== */
+
+.servicios-barberia {
+    padding: 100px 8%;
+    background-color: #071a3d;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.titulo-seccion h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.titulo-seccion h2 span {
+    color: #d4af37;
+}
+
+.titulo-seccion p {
+    color: #dddddd;
+    font-size: 15px;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.servicio-card {
+    padding: 40px 22px;
+    min-height: 260px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #d4af37;
+    transition: 0.3s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.18);
+}
+
+.servicio-icono {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    border: 1px solid #d4af37;
+    color: #b18d24;
+    font-size: 30px;
+}
+
+.servicio-card h3 {
+    color: #071a3d;
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.servicio-card p {
+    color: #444444;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* ==========================
+   GALERÍA
+========================== */
+
+.galeria-barberia {
+    padding: 100px 9%;
+    background-color: white;
+}
+
+.galeria-barberia .titulo-seccion h2 {
+    color: #071a3d;
+}
+
+.galeria-barberia .titulo-seccion p {
+    color: #555555;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.galeria-item {
+    min-height: 290px;
+}
+
+.galeria-placeholder {
+    width: 100%;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #e9edf3;
+    border: 2px solid #d4af37;
+    color: #071a3d;
+    transition: 0.3s;
+}
+
+.galeria-placeholder:hover {
+    background-color: #071a3d;
+    color: #d4af37;
+}
+
+.galeria-placeholder i {
+    font-size: 50px;
+    color: #b18d24;
+}
+
+.galeria-placeholder span {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* ==========================
+   CONTACTO
+========================== */
+
+.contacto-barberia {
+    padding: 100px 20px;
+    text-align: center;
+    background:
+        linear-gradient(rgba(7, 26, 61, 0.91), rgba(7, 26, 61, 0.94)),
+        url('/assets/barberia/portada-barberia.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contacto-contenido {
+    max-width: 750px;
+    margin: auto;
+}
+
+.contacto-contenido h2 {
+    color: white;
+    font-size: 37px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.contacto-contenido h2 span {
+    color: #d4af37;
+}
+
+.contacto-contenido p {
+    color: #eeeeee;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 25px auto 30px;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px 28px;
+    background-color: #d4af37;
+    color: #071a3d;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn-whatsapp i {
+    font-size: 21px;
+}
+
+.btn-whatsapp:hover {
+    background-color: white;
+    color: #071a3d;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.barberia-footer {
+    padding: 45px 20px 25px;
+    text-align: center;
+    background-color: #06142e;
+}
+
+.footer-linea {
+    width: 80px;
+    height: 2px;
+    background-color: #d4af37;
+    margin: 0 auto 25px;
+}
+
+.barberia-footer h3 {
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.barberia-footer h3 span {
+    color: #d4af37;
+}
+
+.barberia-footer p {
+    color: #cccccc;
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+.footer-inicio {
+    display: inline-block;
+    margin: 12px 0 20px;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-inicio:hover {
+    color: white;
+}
+
+.barberia-footer .copyright {
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+    font-size: 12px;
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sobre-barberia {
+        gap: 35px;
+        padding: 75px 7%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .barberia-portada {
+        min-height: 600px;
+    }
+
+    .barberia-nav {
+        padding: 18px 5%;
+    }
+
+    .produccion {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .portada-contenido {
+        padding: 75px 20px;
+    }
+
+    .portada-contenido h1 {
+        letter-spacing: 2px;
+    }
+
+    .subtitulo {
+        font-size: 20px;
+    }
+
+    .sobre-barberia {
+        grid-template-columns: 1fr;
+        padding: 70px 8%;
+    }
+
+    .sobre-texto h2 {
+        font-size: 31px;
+    }
+
+    .servicios-barberia,
+    .galeria-barberia {
+        padding: 75px 7%;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 29px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contacto-contenido h2 {
+        font-size: 29px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .barberia-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-whatsapp {
+        font-size: 12px;
+        padding: 13px 18px;
+    }
+
+}
