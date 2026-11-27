@@ -1,50 +1,56 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { Producto } from '../../models/i-producto';
 import { CarritoService } from '../../servicios/carritoService';
 
 @Component({
   selector: 'app-carrito',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './carrito.html',
   styleUrl: './carrito.css',
 })
-export class Carrito implements OnInit, OnDestroy {
+export class Carrito implements OnInit {
 
-  productosCarrito: Producto[] = [];
-  private suscripcion!: Subscription;
+  items: any[] = [];
 
-  constructor(private carritoService: CarritoService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private carritoService: CarritoService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.suscripcion = this.carritoService.carrito$.subscribe(productos => {
-      this.productosCarrito = productos;
-      this.cdr.markForCheck();   // la app no usa zone.js: avisamos que hay que redibujar
-    });
-    this.carritoService.cargar();
+    this.cargar();
   }
 
-  ngOnDestroy(): void { this.suscripcion?.unsubscribe(); }
-
-  quitarDelCarrito(id: number): void { this.carritoService.borrarProducto(id); }
-
-  vaciarCarrito(): void { this.carritoService.vaciarCarrito(); }
-
-  calcularTotal(): number {
-    return this.productosCarrito.reduce(
-      (total, p) => total + Number(p.precio) * (p.cantidad ?? 1), 0);
-  }
-
-  finalizarCompra(): void {
-    this.carritoService.finalizarCompra().subscribe({
-      next: urlPdf => {
-        alert('¡Compra realizada! Se abrirá tu ticket.');
-        window.open(urlPdf, '_blank');
+  cargar(): void {
+    this.carritoService.ver().subscribe({
+      next: (items: any[]) => {
+        this.items = items;
+        this.cdr.markForCheck();
       },
-      error: e => alert(e.error?.error ?? 'No se pudo finalizar la compra')
+      error: () => {
+        this.items = [];
+        this.cdr.markForCheck();
+      },
     });
   }
+
+  total = (): number =>
+  this.items.reduce((suma, i) => suma + Number(i.precio_unitario) * Number(i.cantidad), 0);
+
+  cambiarCantidad(item: any, cantidad: number): void {
+    if (cantidad < 1) {
+      this.quitar(item.id_producto);
+      return;
+    }
+    this.carritoService.actualizar(item.id_producto, cantidad).subscribe(() => this.cargar());
+  }
+
+  quitar(idProducto: number): void {
+    this.carritoService.eliminar(idProducto).subscribe(() => this.cargar());
+  }
+
+  vaciar(): void {
+    this.carritoService.vaciar().subscribe(() => this.cargar());
+  }
+  
 }

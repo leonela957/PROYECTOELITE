@@ -1,4 +1,4 @@
-x<div class="inicio-sesion-container">
+<div class="inicio-sesion-container">
 
     <div class="inicio-sesion-formulario">
 
@@ -13,7 +13,7 @@ x<div class="inicio-sesion-container">
 
         </div>
 
-        <form (ngSubmit)="iniciar()">
+   <form (ngSubmit)="ingresar()">
 
             <!-- CORREO ELECTRÓNICO -->
             <div class="mb-4">
@@ -36,11 +36,11 @@ x<div class="inicio-sesion-container">
                 </label>
 
                 <input
-                    type="password"
-                    id="password" name="password" [(ngModel)]="password"
-                    class="form-control"
-                    placeholder="Ingresá tu contraseña"
-                    required>
+    type="password"
+    id="password" name="password" [(ngModel)]="clave"
+    class="form-control"
+    placeholder="Ingresá tu contraseña"
+    required>
             </div>
 
             <!-- RECORDAR SESIÓN -->

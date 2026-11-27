@@ -1,90 +1,74 @@
-
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Producto } from '../../models/i-producto';
 import { FavoritoService } from '../../servicios/favoritoService';
 import { CarritoService } from '../../servicios/carritoService';
 import { CategoriaService } from '../../servicios/categoriaService';
-import { RouterLink } from '@angular/router';
-import { ProductoService } from '../../servicios/producto-service';
+import { ProductService } from '../../servicios/producto-service';
 
 @Component({
   selector: 'app-tienda',
-  imports: [ RouterLink],
+  imports: [RouterLink],
   templateUrl: './tienda.html',
   styleUrl: './tienda.css',
 })
-
 export class Tienda implements OnInit {
+
+  productos: Producto[] = [];
+
+  // Carrusel de imágenes
+  imagenActual = 0;
+  private readonly totalImagenes = 5;
 
   constructor(
     private favoritoService: FavoritoService,
     private carritoService: CarritoService,
     public categoriaService: CategoriaService,
-    public productoService: ProductoService,
+    public productoService: ProductService,
     private cdr: ChangeDetectorRef
   ) {}
 
-  productos: Producto[] = [];
-
   ngOnInit(): void {
-
-    this.productoService.obtenerProductos().subscribe(lista => {
+    this.productoService.listar().subscribe((lista: Producto[]) => {
       this.productos = lista;
       this.cdr.markForCheck();
     });
-
-    console.log('PRODUCTOS:', this.productos);
-
   }
 
-  // CATEGORÍA SELECCIONADA
-
+  // Productos filtrados por la categoría seleccionada
   obtenerProductosFiltrados(): Producto[] {
+    const categoria = this.categoriaService.categoriaSeleccionada;
 
-    if (this.categoriaService.categoriaSeleccionada === 'todos') {
+    if (categoria === 'todos') {
       return this.productos;
     }
 
-    return this.productos.filter(
-      producto => producto.categoria === this.categoriaService.categoriaSeleccionada
-    );
-
+    return this.productos.filter(producto => producto.categoria === categoria);
   }
-
-  // AGREGAR A FAVORITOS
 
   agregarAFavoritos(p: Producto): void {
-    this.favoritoService.agregarAFavorito(p);
+    this.favoritoService.agregar(p.id).subscribe({
+      next: () => alert('Producto agregado a favoritos'),
+      error: e => alert(e.error?.error ?? 'No se pudo agregar a favoritos'),
+    });
   }
-
-  // AGREGAR AL CARRITO
 
   agregarACarrito(p: Producto): void {
-    this.carritoService.agregarACarrito(p);
+    this.carritoService.agregar(p.id, 1).subscribe({
+      next: () => alert('Producto agregado al carrito'),
+      error: e => alert(e.error?.error ?? 'No se pudo agregar al carrito'),
+    });
   }
 
-  // CARRUSEL DE IMÁGENES
-
-  imagenActual: number = 0;
-
   siguiente(): void {
-    this.imagenActual++;
-
-    if (this.imagenActual > 4) {
-      this.imagenActual = 0;
-    }
+    this.imagenActual = (this.imagenActual + 1) % this.totalImagenes;
   }
 
   anterior(): void {
-    this.imagenActual--;
-
-    if (this.imagenActual < 0) {
-      this.imagenActual = 4;
-    }
+    this.imagenActual = (this.imagenActual - 1 + this.totalImagenes) % this.totalImagenes;
   }
 
   cambiarImagen(numero: number): void {
     this.imagenActual = numero;
   }
-
 }

@@ -24,13 +24,13 @@ export class App {
 
         const ruta = this.router.url.split('?')[0];
 
-        this.mostrarNav =
-          ruta === '/tienda' ||
-          ruta === '/carrito' ||
-          ruta === '/favoritos' ||
-          ruta.startsWith('/productos/');
+    this.mostrarNav =
+    ruta === '/tienda' ||
+    ruta === '/carrito' ||
+    ruta === '/favoritos' ||
+    ruta.startsWith('/productos/') ||
+    ruta === '/admin';
 
-      });
-
-  }
+    }
+  )}
 }

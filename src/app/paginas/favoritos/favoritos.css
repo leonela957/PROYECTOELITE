@@ -1,180 +1,149 @@
 
-/* CONTENEDOR PRINCIPAL */
+/* =========================
+   PÁGINA DE FAVORITOS
+========================= */
 
-.favoritos-container {
-    max-width: 100%;
-    min-height: 500px;
-    margin: 0 auto;
-    padding: 50px 30px;
-    background: #102544;
+:host {
+    display: block;
+    min-height: 80vh;
+    padding: 55px 40px;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
 }
 
+/* =========================
+   TARJETAS DE FAVORITOS
+========================= */
 
-/* TÍTULO */
+.fav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-.titulo-favoritos {
-    color: #d4af37;
-    font-size: 34px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
+    max-width: 1100px;
+    min-height: 160px;
+    margin: 28px auto;
+    padding: 25px 35px;
 
-
-/* SUBTÍTULO */
-
-.subtitulo {
-    color: #c5d1df;
-    font-size: 16px;
-}
-
-
-/* CONTENEDOR DE LA TABLA */
-
-.favoritos-container table {
-    width: 100%;
-    margin-bottom: 25px;
-    background: #dce7f2;
+    background-color: white;
     border: 2px solid #d4af37;
-    border-collapse: collapse;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-}
+    border-left: 7px solid #d4af37;
+    border-radius: 10px;
 
-
-/* ENCABEZADOS */
-
-.favoritos-container th {
-    background: #071a3d;
-    color: #d4af37;
-    padding: 18px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    border: 1px solid #d4af37;
-}
-
-
-/* CELDAS */
-
-.favoritos-container td {
-    padding: 16px 12px;
-    text-align: center;
-    vertical-align: middle;
     color: #071a3d;
-    border: 1px solid #aabed3;
-    font-size: 14px;
-    background: #dce7f2;
-}
+    font-size: 20px;
+    font-weight: 600;
 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 
-/* IMÁGENES */
-
-.favoritos-container td img {
-    width: 100px;
-    height: 120px;
-    object-fit: contain;
-}
-
-
-/* EFECTO AL PASAR POR LA FILA */
-
-.favoritos-container tr:hover td {
-    background: #c5d5e6;
-}
-
-
-/* BOTONES */
-
-.favoritos-container td button {
-    width: 42px;
-    height: 42px;
-    background: #071a3d;
-    color: white;
-    border: 1px solid #d4af37;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
     transition: 0.3s ease;
 }
 
+.fav:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(7, 26, 61, 0.2);
+}
 
-/* EFECTO DE LOS BOTONES */
+/* =========================
+   IMAGEN DEL PRODUCTO
+========================= */
 
-.favoritos-container td button:hover {
-    background: #d4af37;
+.fav img {
+    width: 125px;
+    height: 125px;
+
+    object-fit: contain;
+    border-radius: 8px;
+
+    background-color: #f8f8f8;
+    border: 1px solid #eeeeee;
+
+    margin-right: 30px;
+}
+
+/* =========================
+   BOTÓN QUITAR
+========================= */
+
+.fav button {
+    padding: 13px 28px;
+
+    background-color: #071a3d;
+    color: #d4af37;
+
+    border: 2px solid #d4af37;
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.fav button:hover {
+    background-color: #d4af37;
     color: #071a3d;
+
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7),
+                0 0 18px rgba(212, 175, 55, 0.3);
+
     transform: translateY(-2px);
 }
 
+/* =========================
+   MENSAJE SIN FAVORITOS
+========================= */
 
-/* FAVORITOS VACÍOS */
+p {
+    max-width: 750px;
+    margin: 100px auto;
+    padding: 40px;
 
-.favoritos-vacios {
+    text-align: center;
+
     color: #071a3d;
-    background: #dce7f2;
-    border: 1px solid #d4af37;
-    border-radius: 8px;
-    padding: 45px 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 22px;
+    font-weight: 600;
+
+    background-color: white;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.favoritos-vacios h3 {
-    margin-top: 15px;
-    font-size: 23px;
-}
+/* =========================
+   RESPONSIVE
+========================= */
 
-.favoritos-vacios p {
-    color: #4d5661;
-}
+@media (max-width: 600px) {
 
-.icono-corazon {
-    color: #b08d20;
-    font-size: 45px;
-}
-
-
-/* BOTÓN PARA IR A LA TIENDA */
-
-.btn-tienda {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 11px 25px;
-    background: #071a3d;
-    color: white;
-    border: 1px solid #d4af37;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.btn-tienda:hover {
-    background: #d4af37;
-    color: #071a3d;
-}
-
-
-/* TABLET Y CELULAR */
-
-@media (max-width: 768px) {
-
-    .favoritos-container {
-        padding: 35px 15px;
+    :host {
+        padding: 25px 15px;
     }
 
-    .titulo-favoritos {
-        font-size: 27px;
+    .fav {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 18px;
+        font-size: 17px;
     }
 
-    .favoritos-container table {
-        min-width: 750px;
+    .fav img {
+        width: 95px;
+        height: 95px;
+        margin-right: 5px;
     }
 
-    .favoritos-container {
-        overflow-x: auto;
+    .fav button {
+        padding: 10px 20px;
+        font-size: 14px;
     }
 
-    .favoritos-container td img {
-        width: 75px;
-        height: 90px;
+    p {
+        margin: 50px auto;
+        padding: 25px;
+        font-size: 18px;
     }
 }

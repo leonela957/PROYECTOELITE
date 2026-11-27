@@ -1,35 +1,50 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { FavoritoService } from '../../servicios/favoritoService';
-import { Producto } from '../../models/i-producto';
+import { CarritoService } from '../../servicios/carritoService';
 
 @Component({
   selector: 'app-favoritos',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './favoritos.html',
   styleUrl: './favoritos.css',
 })
-export class Favoritos implements OnInit, OnDestroy {
+export class Favoritos implements OnInit {
 
-  productosFavoritos: Producto[] = [];
-  private suscripcion!: Subscription;
+  favoritos: any[] = [];
 
-  constructor(private favoritoService: FavoritoService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private favoritoService: FavoritoService,
+    private carritoService: CarritoService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.suscripcion = this.favoritoService.favoritos$.subscribe(lista => {
-      this.productosFavoritos = lista;
-      this.cdr.markForCheck();
-    });
-    this.favoritoService.cargar();
+    this.cargar();
   }
 
-  ngOnDestroy(): void { this.suscripcion?.unsubscribe(); }
+  cargar(): void {
+    this.favoritoService.listar().subscribe({            // ⚠️ nombre supuesto
+      next: (lista: any[]) => {
+        this.favoritos = lista;
+        this.cdr.markForCheck();
+      },
+      error: () => {
+        this.favoritos = [];
+        this.cdr.markForCheck();
+      },
+    });
+  }
 
-  quitarFavorito(id: number): void { this.favoritoService.borrarProducto(id); }
+  quitar(idProducto: number): void {
+    this.favoritoService.eliminar(idProducto).subscribe(() => this.cargar());   // ⚠️ nombre supuesto
+  }
 
-  agregarAlCarrito(producto: Producto): void { this.favoritoService.agregarCarrito(producto); }
+  agregarAlCarrito(favorito: any): void {
+    this.carritoService.agregar(favorito.id_producto, 1).subscribe({
+      next: () => alert('Producto agregado al carrito'),
+      error: e => alert(e.error?.error ?? 'No se pudo agregar al carrito'),
+    });
+  }
 }

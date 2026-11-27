@@ -1,8 +1,7 @@
-
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Producto } from '../../models/i-producto';
-import { ProductoService } from '../../servicios/producto-service';
+import { ProductService } from '../../servicios/producto-service';
 
 @Component({
   selector: 'app-productos',
@@ -10,57 +9,56 @@ import { ProductoService } from '../../servicios/producto-service';
   templateUrl: './productos.html',
   styleUrl: './productos.css',
 })
-
 export class Productos implements OnInit {
 
   producto?: Producto;
-
-  imagenActual: number = 0;
+  imagenActual = 0;
 
   get imagenesProducto(): string[] {
-    return this.producto?.imagenes.length
+    if (!this.producto) return [];
+    return this.producto.imagenes?.length
       ? this.producto.imagenes
-      : this.producto
-        ? [this.producto.imagen]
-        : [];
+      : [this.producto.imagen];
   }
 
   constructor(
     private route: ActivatedRoute,
-    private productoService: ProductoService,
+    private productoService: ProductService,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.productoService.obtenerProductoPorId(id).subscribe({
-      next: p => { this.producto = p; this.cdr.markForCheck(); },
-      error: () => { this.producto = undefined; this.cdr.markForCheck(); }
+    this.productoService.verUno(id).subscribe({
+      next: (p: Producto) => {
+        this.producto = p;
+        this.cdr.markForCheck();
+      },
+      error: () => {
+        this.producto = undefined;
+        this.cdr.markForCheck();
+      },
     });
-
   }
 
-  // CARRUSEL DE IMÁGENES
+  // Carrusel de imágenes
 
   siguiente(): void {
-    const cantidadImagenes = this.imagenesProducto.length;
-    if (cantidadImagenes > 0) {
-      this.imagenActual = (this.imagenActual + 1) % cantidadImagenes;
+    const cantidad = this.imagenesProducto.length;
+    if (cantidad > 0) {
+      this.imagenActual = (this.imagenActual + 1) % cantidad;
     }
   }
 
   anterior(): void {
-    const cantidadImagenes = this.imagenesProducto.length;
-    if (cantidadImagenes > 0) {
-      this.imagenActual =
-        (this.imagenActual - 1 + cantidadImagenes) % cantidadImagenes;
+    const cantidad = this.imagenesProducto.length;
+    if (cantidad > 0) {
+      this.imagenActual = (this.imagenActual - 1 + cantidad) % cantidad;
     }
   }
 
   cambiarImagen(numero: number): void {
     this.imagenActual = numero;
   }
-
 }

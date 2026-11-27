@@ -13,6 +13,10 @@ import { Registro } from './auth/registro/registro';
 import { InicioSesion } from './auth/inicio-sesion/inicio-sesion';
 import { Productos } from './paginas/productos/productos';
 
+import { adminGuard } from "./guard/admin.guard"; 
+import { Admin } from './paginas/admin/admin';
+ 
+
 export const routes: Routes = [
 
     { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -30,6 +34,8 @@ export const routes: Routes = [
 
     { path: 'registro', component: Registro },
     { path: 'inicio-sesion', component: InicioSesion },
+
+     { path: "admin", component: Admin, canActivate: [adminGuard] },
 
     { path: '**', redirectTo: 'inicio' }
 

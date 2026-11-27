@@ -1,46 +1,44 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
-import { Producto } from '../models/i-producto';
-import { API_URL } from '../config';
+// servicios/product.service.ts 
+import { Injectable } from "@angular/core"; 
+import { HttpClient, HttpParams } from "@angular/common/http"; 
+import { Observable } from "rxjs"; 
+import { Producto } from "../models/i-producto"; 
 
-// "assets/..." se sirve desde Angular; un nombre suelto viene de /uploads de la API
-export function rutaImagen(img: string | null | undefined): string {
-  if (!img) return '';
-  if (img.startsWith('assets/') || img.startsWith('http')) return img;
-  return `${API_URL}/uploads/${img}`;
-}
-
-// Fila de la tabla productos -> Producto de Angular
-export function convertirProducto(p: any): Producto {
-  let imagenes: string[] = [];
-  try { imagenes = p.imagenes ? JSON.parse(p.imagenes) : []; } catch { imagenes = []; }
-  const imagen = rutaImagen(p.imagen);
-  return {
-    id: Number(p.id),
-    nombre: p.nombre,
-    descripcion: p.descripcion ?? '',
-    precio: Number(p.precio),
-    imagen,
-    imagenes: imagenes.length ? imagenes.map(rutaImagen) : [imagen],
-    categoria: p.categoria ?? 'vestidos',
-    stock: Number(p.stock ?? 1),
-    color: p.color ?? undefined,
-    talle: p.talle ?? undefined
-  };
-}
-
-@Injectable({ providedIn: 'root' })
-export class ProductoService {
-  private http = inject(HttpClient);
-
-  obtenerProductos(): Observable<Producto[]> {
-    return this.http.get<any[]>(`${API_URL}/productos`)
-      .pipe(map(lista => lista.map(convertirProducto)));
-  }
-
-  obtenerProductoPorId(id: number): Observable<Producto> {
-    return this.http.get<any>(`${API_URL}/productos/${id}`)
-      .pipe(map(convertirProducto));
-  }
-}
+@Injectable({ providedIn: "root" }) 
+export class ProductService { 
+  private apiUrl = "http://localhost/api_proyecto_ELITE/public/productos"; 
+  
+  constructor(private http: HttpClient) {} 
+  
+  // listar() trae todos; listar("remera") trae solo los que coinciden 
+  listar(buscar: string = ""): Observable<Producto[]> { 
+    let params = new HttpParams(); 
+    if (buscar) { 
+      params = params.set("buscar", buscar);   // agrega ?buscar=remera 
+    } 
+    return this.http.get<Producto[]>(this.apiUrl, { params }); 
+  } 
+  
+  verUno(id: number): Observable<Producto> { 
+    return this.http.get<Producto>(`${this.apiUrl}/${id}`); 
+  } 
+  
+  crear(producto: Partial<Producto>): Observable<any> { 
+    return this.http.post(this.apiUrl, producto); 
+  } 
+  
+  editar(id: number, producto: Partial<Producto>): Observable<any> { 
+    return this.http.put(`${this.apiUrl}/${id}`, producto); 
+  } 
+  
+  eliminar(id: number): Observable<any> { 
+    return this.http.delete(`${this.apiUrl}/${id}`); 
+  } 
+  
+  subirImagen(archivo: File): Observable<{ imagen: string }> { 
+    const datos = new FormData(); 
+    datos.append("imagen", archivo);   // "imagen" = nombre del campo que lee PHP en $_FILES 
+    return this.http.post<{ imagen: string }>(`${this.apiUrl}/imagen`, datos); 
+  } 
+  
+} 
